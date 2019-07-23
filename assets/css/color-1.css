@@ -2768,7 +2768,7 @@ footer {
     margin: 0 auto
 }
 
-.choose-course .icon-circle .icon-background {
+.choose-course .icon-circle .icon-background{
     position: absolute;
     bottom: 12px;
     width: 146px;
@@ -2776,13 +2776,24 @@ footer {
     margin-left: -73px;
     height: 146px;
     border-radius: 50%;
-    background-color: #FFC037;
     color: #fff;
     z-index: 11;
     display: table;
     transition: all .5s ease-in-out;
     -webkit-transform-origin: 50% 0;
     transform-origin: 50% 0
+}
+
+.choose-course .icon-circle .orange-bg {
+    background-color:#FFC037;
+}
+
+.choose-course .icon-circle .blue-bg {
+    background-color:#009AFF;
+}
+
+.choose-course .icon-circle .red-bg {
+    background-color:#FA0D0D;
 }
 
 .choose-course .icon-circle .icon-background .icons-img {
@@ -2823,7 +2834,7 @@ footer {
 .choose-course .icon-circle .info .info-back {
     opacity: 1;
     border-radius: 50%;
-    background-color: #242c42;
+    background-color: #FFF;
     width: 100%;
     height: 100%;
     display: table;
@@ -2839,11 +2850,11 @@ footer {
     left: -1px;
     bottom: -1px;
     right: -1px;
-    border: 12px solid #FFC037;
+    /* border: 12px solid #FFC037; */
     border-radius: 50%
 }
 
-.choose-course .icon-circle .info .info-back:before .service1 {
+.choose-course .icon-circle .info .info-back:before .service1{
     border: 12px solid red;
 }
 
@@ -2857,19 +2868,22 @@ footer {
     /* transition: all 0.7s ease */
 }
 
-.choose-course .icon-circle:hover .icon-background {
-    background-color: #FFC037;
-    bottom: 90%;
-    transform: scale(1.1);
+.choose-course .icon-circle:hover .icon-background{
+    /* background-color: #FFC037; */
+    bottom: 15%;
+    transform: scale(1.2);
 }
 
+
+
+/* 
 .choose-course .icon-circle:hover .icon-background:after {
     border: 2px solid #fff
-}
+} */
 
-.choose-course .icon-circle:hover .info .info-back:before {
+/* .choose-course .icon-circle:hover .info .info-back:before {
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6)
-}
+} */
 
 .choose-course .icon-circle:hover .info .info-back a {
     transition-delay: 1s;
@@ -5279,7 +5293,7 @@ h5 {
 .edugate-content {
     display: table-cell;
     vertical-align: top;
-    text-align: left
+    text-align: left;
 }
 
 .edugate-content .title {
@@ -6055,7 +6069,7 @@ h5 {
     }
 
     .choose-course-3 .item-course {
-        width: 50%
+        width: 50%;
     }
 
     .choose-course-3 .item-course:nth-last-child(-n+3) {
