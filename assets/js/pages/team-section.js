@@ -93,6 +93,21 @@ function onMouseMove(event)
     mouseZ = -(radius) - (Math.abs(-(window.innerHeight * .5) + event.pageY ) - 200);
 }
 
+function mouseDown() {
+    mouseX = -(-(window.innerWidth * .5) + event.pageX) * .0025;
+    mouseY = -(-(window.innerHeight * .5) + event.pageY ) * .01;
+    mouseZ = -(radius) - (Math.abs(-(window.innerHeight * .5) + event.pageY ) - 200);
+    // document.getElementById("test-1").style.color = "red";
+}
+
+function mouseUp() {
+    mouseX = 0;
+    mouseY = 0;
+    mouseZ = 0;
+    // document.getElementById("test-1").style.color = "green";
+}
+
+
 // loops and sets the carousel 3d properties
 function looper()
 {
