@@ -274,45 +274,55 @@
                     <div class="bottom-title"><i class="bottom-icon icon-a-1-01-01"></i></div>
                 </div>
 
-                <div id="contentContainer" class="trans3d" onmousedown="mouseDown()" onmouseup="mouseUp()">
-                    <div class="picture-gallery-wrapper"><!-- Nav tabs-->
-                        <ul role="tablist" class="nav nav-tabs edugate-tabs">
-                            <li role="presentation" class="active"><a href="#study-abroad" data-toggle="tab" class="text">留学 & 移民</a></li>
-                            <li role="presentation"><a href="#it-training" data-toggle="tab" class="text">IT 职业培训</a></li>
-                            <li role="presentation"><a href="#career-coaching" data-toggle="tab" class="text">职业规划 & 指导</a></li>
-                        </ul>
-                        <!-- Tab panes-->
-                        <div class="tab-content gallery-content">
-                            <div id="study-abroad" role="tabpanel" class="tab-pane fade in active"  onclick="init()">
-                                <section id="carouselContainer" class="trans3d"> 
-                                    <figure id="item1" class="carouselItem trans3d"><div id="test-1" class="carouselItemInner trans3d">1</div></figure>
-                                    <figure id="item2" class="carouselItem trans3d"><div class="carouselItemInner trans3d">2</div></figure>
-                                    <figure id="item3" class="carouselItem trans3d"><div class="carouselItemInner trans3d">3</div></figure>
-                                    <figure id="item4" class="carouselItem trans3d"><div class="carouselItemInner trans3d">4</div></figure>
-                                    <figure id="item5" class="carouselItem trans3d"><div class="carouselItemInner trans3d">5</div></figure>
-                                    <figure id="item6" class="carouselItem trans3d"><div class="carouselItemInner trans3d">6</div></figure>
+
+                <div class="picture-gallery-wrapper"><!-- Nav tabs-->
+                    <ul role="tablist" class="nav nav-tabs edugate-tabs">
+                        <li role="presentation" class="active"><a href="#study-abroad" data-toggle="tab" class="text" onclick="init()">留学 & 移民</a></li>
+                        <li role="presentation"><a href="#it-training" data-toggle="tab" class="text" onclick="initTab2()">IT 职业培训</a></li>
+                        <li role="presentation"><a href="#career-coaching" data-toggle="tab" class="text" onclick="initTab3()">职业规划 & 指导</a></li>
+                    </ul>
+                    <!-- Tab panes-->
+                    
+                    <div class="tab-content gallery-content">
+                        <div id="study-abroad" role="tabpanel" class="tab-pane fade in active" >
+                            <div id="tab1-contentContainer" class="trans3d" onmousedown="mouseDown()" onmouseup="mouseUp()">
+                                <section id="tab1-carouselContainer" class="trans3d"> 
+                                    <figure id="tab1-item1" class="tab1-carouselItem trans3d"><div id="test-1" class="tab1-carouselItemInner trans3d">1</div></figure>
+                                    <figure id="tab1-item2" class="tab1-carouselItem trans3d"><div class="tab1-carouselItemInner trans3d">2</div></figure>
+                                    <figure id="tab1-item3" class="tab1-carouselItem trans3d"><div class="tab1-carouselItemInner trans3d">3</div></figure>
+                                    <figure id="tab1-item4" class="tab1-carouselItem trans3d"><div class="tab1-carouselItemInner trans3d">4</div></figure>
+                                    <figure id="tab1-item5" class="tab1-carouselItem trans3d"><div class="tab1-carouselItemInner trans3d">5</div></figure>
+                                    <figure id="tab1-item6" class="tab1-carouselItem trans3d"><div class="tab1-carouselItemInner trans3d">6</div></figure>
                                 </section>
                             </div>
-                            <div id="it-training" role="tabpanel" class="tab-pane fade"  onclick="init()">
-                                <!-- <div class="grid"> -->
-                                    <section id="carouselContainer" class="trans3d"> 
-                                        <figure id="item1" class="carouselItem trans3d"><div id="test-1" class="carouselItemInner trans3d">1</div></figure>
-                                        <figure id="item2" class="carouselItem trans3d"><div class="carouselItemInner trans3d">2</div></figure>
-                                        <figure id="item3" class="carouselItem trans3d"><div class="carouselItemInner trans3d">3</div></figure>
-                                        <figure id="item4" class="carouselItem trans3d"><div class="carouselItemInner trans3d">4</div></figure>
-                                        <figure id="item5" class="carouselItem trans3d"><div class="carouselItemInner trans3d">5</div></figure>
-                                        <figure id="item6" class="carouselItem trans3d"><div class="carouselItemInner trans3d">6</div></figure>
-                                    </section>
-                                <!-- </div> -->
+                        </div>
+                        <div id="it-training" role="tabpanel" class="tab-pane fade">
+                            <div id="tab2-contentContainer" class="trans3d" onmousedown="mouseDown()" onmouseup="mouseUp()">
+                                <section id="tab2-carouselContainer" class="trans3d"> 
+                                    <figure id="tab2-item1" class="tab2-carouselItem trans3d"><div class="tab2-carouselItemInner trans3d">1</div></figure>
+                                    <figure id="tab2-item2" class="tab2-carouselItem trans3d"><div class="tab2-carouselItemInner trans3d">2</div></figure>
+                                    <figure id="tab2-item3" class="tab2-carouselItem trans3d"><div class="tab2-carouselItemInner trans3d">3</div></figure>
+                                    <figure id="tab2-item4" class="tab2-carouselItem trans3d"><div class="tab2-carouselItemInner trans3d">4</div></figure>
+                                    <figure id="tab2-item5" class="tab2-carouselItem trans3d"><div class="tab2-carouselItemInner trans3d">5</div></figure>
+                                    <figure id="tab2-item6" class="tab2-carouselItem trans3d"><div class="tab2-carouselItemInner trans3d">6</div></figure>
+                                </section>
                             </div>
-                            <div id="career-coaching" role="tabpanel" class="tab-pane fade">
-                                <div class="grid">
-
-                                </div>
+                        </div>
+                        <div id="career-coaching" role="tabpanel" class="tab-pane fade">
+                            <div id="tab3-contentContainer" class="trans3d" onmousedown="mouseDown()" onmouseup="mouseUp()">
+                                <section id="tab3-carouselContainer" class="trans3d"> 
+                                    <figure id="tab3-item1" class="tab3-carouselItem trans3d"><div class="tab3-carouselItemInner trans3d">1</div></figure>
+                                    <figure id="tab3-item2" class="tab3-carouselItem trans3d"><div class="tab3-carouselItemInner trans3d">2</div></figure>
+                                    <figure id="tab3-item3" class="tab3-carouselItem trans3d"><div class="tab3-carouselItemInner trans3d">3</div></figure>
+                                    <figure id="tab3-item4" class="tab3-carouselItem trans3d"><div class="tab3-carouselItemInner trans3d">4</div></figure>
+                                    <figure id="tab3-item5" class="tab3-carouselItem trans3d"><div class="tab3-carouselItemInner trans3d">5</div></figure>
+                                    <figure id="tab3-item6" class="tab3-carouselItem trans3d"><div class="tab3-carouselItemInner trans3d">6</div></figure>
+                                </section>
                             </div>
                         </div>
                     </div>
                 </div>
+                
                 <div class="staff-item">
                     <div class="staff-item-wrapper">
                         <div class="staff-info"><a href="#" class="staff-avatar"><img src="assets/images/people-avatar-2.jpg" alt="" class="img-responsive"/></a><a href="#" class="staff-name">Alex trevor</a>

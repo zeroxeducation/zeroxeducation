@@ -8037,7 +8037,7 @@ a:hover
 		backface-visibility:hidden;*/
 	}
 	
-	#contentContainer
+	#tab1-contentContainer, #tab2-contentContainer, #tab3-contentContainer
 	{
 		position:relative;
         margin-left:-500px;
@@ -8048,17 +8048,17 @@ a:hover
 		height:500px;
 	}
 	
-	#carouselContainer
+	#tab1-carouselContainer, #tab2-carouselContainer, #tab3-carouselContainer
 	{
 		position:relative;
 		margin-left:-500px;
 		left:50%;
-		top:50%;
+		/* top:50%; */
 		width:1000px;
 		height:500px;
 	}
 	
-	.carouselItem
+	.tab1-carouselItem, .tab2-carouselItem, .tab3-carouselItem
 	{
 		width:320px;
 		height:130px;
@@ -8070,7 +8070,7 @@ a:hover
 		visibility:hidden;
 	}
 	
-	.carouselItemInner
+	.tab1-carouselItemInner, .tab2-carouselItemInner, .tab3-carouselItemInner
 	{
 		width:400px;
 		height:1000px;
