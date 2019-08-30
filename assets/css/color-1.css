@@ -8040,7 +8040,8 @@ a:hover
 	#contentContainer
 	{
 		position:relative;
-		margin-left:-500px;
+        margin-left:-500px;
+        margin-bottom:200px;
 		left:50%;
 		top:50%;
 		width:1000px;
@@ -8071,10 +8072,10 @@ a:hover
 	
 	.carouselItemInner
 	{
-		width:320px;
-		height:130px;
+		width:400px;
+		height:1000px;
 		position:absolute;
-		background-color:rgba(0, 154, 255, .75);
+		background-color:rgba(0, 154, 255, .9);
 		border:10px solid rgba(0, 154, 255, .5);
 		color:aqua;
 		font-size:72px;

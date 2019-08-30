@@ -63,9 +63,10 @@ TweenMax.set($item, {rotationY:rY * i, z:radius, transformOrigin:"50% 50% " + -r
         animateIn( $item, $block )						
     }
     
-    // set mouse x and y props and looper ticker
-    window.addEventListener( "mousemove", onMouseMove, false );
-    ticker = setInterval( looper, 1000/60 );			
+    // // set mouse x and y props and looper ticker
+    window.addEventListener( "mousemove", onMouseMove, true );
+    ticker = setInterval( looper, 1000/60 );
+    // window.removeEventListener( "mousemove", onMouseMove, true );
 }
 
 function animateIn( $item, $block )
@@ -88,22 +89,22 @@ function animateIn( $item, $block )
 
 function onMouseMove(event)
 {
-    mouseX = -(-(window.innerWidth * .5) + event.pageX) * .0025;
-    mouseY = -(-(window.innerHeight * .5) + event.pageY ) * .01;
+    mouseX = (-(window.innerWidth * .5) + event.pageX) * .0025;
+    // mouseY = (-(window.innerHeight * .5) + event.pageY ) * .01;
     mouseZ = -(radius) - (Math.abs(-(window.innerHeight * .5) + event.pageY ) - 200);
 }
 
 function mouseDown() {
-    mouseX = -(-(window.innerWidth * .5) + event.pageX) * .0025;
-    mouseY = -(-(window.innerHeight * .5) + event.pageY ) * .01;
-    mouseZ = -(radius) - (Math.abs(-(window.innerHeight * .5) + event.pageY ) - 200);
+    // set mouse x and y props and looper ticker
+    window.addEventListener( "mousemove", onMouseMove, true );
+    ticker = setInterval( looper, 1000/60 );	
     // document.getElementById("test-1").style.color = "red";
 }
 
 function mouseUp() {
-    mouseX = 0;
-    mouseY = 0;
-    mouseZ = 0;
+    window.removeEventListener( "mousemove", onMouseMove, true );
+   
+    mouseX = 0; // x coordinates are set to be 0, hence squares can be remained unmoved
     // document.getElementById("test-1").style.color = "green";
 }
 
