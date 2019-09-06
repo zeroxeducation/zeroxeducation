@@ -783,7 +783,7 @@
 
 .staff-item {
     cursor: pointer;
-    background-color: #fff;
+    background-color:rgba(0, 154, 255, .5);
     padding: 30px;
     position: relative;
     overflow: hidden;
@@ -817,7 +817,7 @@
 
 .staff-item .staff-item-wrapper {
     width: 100%;
-    height: 235px;
+    height: 300px;  /* Note: change this according to the actual board size*/
     overflow: hidden;
     transition: all 0.8s ease
 }
@@ -842,13 +842,13 @@
 
 .staff-item .staff-info .staff-name {
     font-size: 18px;
-    color: #49575f;
+    color: white;
     text-transform: uppercase;
     margin-bottom: 10px
 }
 
 .staff-item .staff-info .staff-job {
-    color: #86bc42;
+    color:rgba(0, 154, 255, .5);
     text-transform: capitalize;
     margin-bottom: 25px
 }
@@ -857,8 +857,8 @@
     display: none;
     text-align: justify;
     font-size: 13px;
-    height: 72px;
-    overflow: hidden;
+    height: 144px;
+    overflow: ;
     transition: all 0.8s ease
 }
 
@@ -885,7 +885,7 @@
 }
 
 .staff-item:hover {
-    background-color: #86bc42
+    background-color: rgba(0, 154, 255, .5);
 }
 
 .staff-item:hover .staff-info .staff-avatar img {
@@ -8045,7 +8045,9 @@ a:hover
 		left:50%;
 		top:50%;
 		width:1000px;
-		height:500px;
+        height:500px;
+        
+        margin-top:-200px;
 	}
 	
 	#tab1-carouselContainer, #tab2-carouselContainer, #tab3-carouselContainer
@@ -8061,7 +8063,7 @@ a:hover
 	.tab1-carouselItem, .tab2-carouselItem, .tab3-carouselItem
 	{
 		width:320px;
-		height:130px;
+		height:500px;
 		position:absolute;
 		left:50%;
 		top:50%;
@@ -8072,14 +8074,14 @@ a:hover
 	
 	.tab1-carouselItemInner, .tab2-carouselItemInner, .tab3-carouselItemInner
 	{
-		width:400px;
-		height:1000px;
+        width:320px;
+		height:500px;
 		position:absolute;
 		background-color:rgba(0, 154, 255, .9);
 		border:10px solid rgba(0, 154, 255, .5);
-		color:aqua;
-		font-size:72px;
-		left:50%;
+		color:white;
+		/* font-size:72px; */
+        left:50%;
 		top:50%;
 		margin-left:-160px;
 		margin-top:-90px;
