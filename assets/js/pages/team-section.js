@@ -48,8 +48,8 @@ function init()
     
     // set container 3d props
     TweenMax.set(container, {perspective:4800})
-    TweenMax.set(carousel, {z:-(radius)})
-    
+    TweenMax.set(carousel, {x:0, y:0, z:-(radius)})
+
     // create carousel item props
     
     for ( var i = 0; i < itemLength; i++ )
@@ -81,7 +81,7 @@ function initTab2()
     
     // set container 3d props
     TweenMax.set(container, {perspective:4800})
-    TweenMax.set(carousel, {z:-(radius)})
+    TweenMax.set(carousel, {x:0, y:0, z:-(radius)})
     
     // create carousel item props
     for ( var i = 0; i < itemLength; i++ )
@@ -113,7 +113,7 @@ function initTab3()
     
     // set container 3d props
     TweenMax.set(container, {perspective:4800})
-    TweenMax.set(carousel, {z:-(radius)})
+    TweenMax.set(carousel, {x:0, z:-(radius)})
     
     // create carousel item props
     for ( var i = 0; i < itemLength; i++ )
@@ -168,7 +168,7 @@ function mouseDown() {
 function mouseUp() {
     window.removeEventListener( "mousemove", onMouseMove, true );
    
-    mouseX = 0; // x coordinates are set to be 0, hence squares can be remained unmoved
+    mouseX = 0; // x coordinates are set to be 0, hence squares stop moving
     // document.getElementById("test-1").style.color = "green";
 }
 
@@ -176,12 +176,28 @@ function mouseUp() {
 // loops and sets the carousel 3d properties
 function looper()
 {
-    addX += mouseX
+    addX += mouseX;
     TweenMax.to( carousel, 1, { rotationY:addX, rotationX:mouseY, ease:Quint.easeOut } )
     // TweenMax.set( carousel, {z:mouseZ } )
     TweenMax.set( carousel, {z:-1300 } )
-    // console.log(mouseZ);
-    fps.text( 'Framerate: ' + counter.tick() + '/60 FPS' )	
+
+    // fps.text( 'Framerate: ' + counter.tick() + '/60 FPS' )	
+}
+
+function roll_right(i)
+{   
+    name_tab = '.tab' + i.toString() + '-carouselItem';
+    itemLength = $( name_tab ).length;
+    addX += 360/itemLength;
+    TweenMax.to( carousel, 1, { rotationY:addX, rotationX:mouseY, ease:Quint.easeOut } )
+}
+
+function roll_left(i)
+{
+    name_tab = '.tab' + i.toString() + '-carouselItem';
+    itemLength = $( name_tab ).length;
+    addX -= 360/itemLength;
+    TweenMax.to( carousel, 1, { rotationY:addX, rotationX:mouseY, ease:Quint.easeOut } )
 }
 
 function getRandomInt( $n )

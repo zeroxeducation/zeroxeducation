@@ -478,7 +478,7 @@
 .group-btn-slider .btn-prev, .group-btn-slider .btn-next {
     position: absolute;
     font-size: 24px;
-    border: 2px solid;
+    border: 3px solid;
     height: 60px;
     width: 60px;
     text-align: center;
@@ -494,7 +494,8 @@
 }
 
 .group-btn-slider .btn-prev:hover, .group-btn-slider .btn-next:hover {
-    opacity: 1
+    opacity: 1;
+    border: 3px solid #86bc42;
 }
 
 .group-btn-slider .btn-prev {
@@ -785,7 +786,7 @@
 
 .staff-item {
     cursor: pointer;
-    background-color:rgba(0, 154, 255, .5);
+    /* background-color:rgba(0, 154, 255, .5); */
     padding: 30px;
     position: relative;
     overflow: hidden;
@@ -850,7 +851,7 @@
 }
 
 .staff-item .staff-info .staff-job {
-    color:rgba(0, 154, 255, .5);
+    /* color:rgba(0, 154, 255, .5); */
     text-transform: capitalize;
     margin-bottom: 25px
 }
@@ -887,7 +888,7 @@
 }
 
 .staff-item:hover {
-    background-color: rgba(0, 154, 255, .5);
+    /* background-color: rgba(0, 154, 255, .5); */
 }
 
 .staff-item:hover .staff-info .staff-avatar img {
@@ -8078,8 +8079,9 @@ a:hover
         width:320px;
 		height:500px;
 		position:absolute;
-		background-color:rgba(0, 154, 255, .9);
-		border:10px solid rgba(0, 154, 255, .5);
+		background-color: rgba(134,188,66, .8);
+        /* border:10px solid rgba(134,188,66, .9); */
+        /* box-shadow:0 1px 1px 1px rgba(127,127,127,0.3); */
 		color:white;
 		/* font-size:72px; */
         left:50%;
@@ -8089,4 +8091,37 @@ a:hover
 		text-align:center;
 		padding-top:50px;
 		
-	}
+    }
+
+.team-section-slider .team-prev, .team-section-slider .team-next {
+    position: absolute;
+    font-size: 24px;
+    border: 3px solid;
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    line-height: 53px;
+    border-radius: 50%;
+    opacity: 0.3;
+    top: 50%;
+    margin-top: -25px;
+    padding: 0;
+    transition: all 0.3s linear;
+    cursor: pointer;
+    z-index: 10
+}
+
+.team-section-slider .team-prev:hover, .team-section-slider .team-next:hover {
+    opacity: 1;
+    border: 3px solid #86bc42;
+}
+
+.team-section-slider .team-prev {
+    left: 20%;
+    margin-top: -430px;
+}
+
+.team-section-slider .team-next {
+    right: 20%;
+    margin-top: -430px;
+}
