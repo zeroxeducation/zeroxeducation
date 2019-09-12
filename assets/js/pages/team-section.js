@@ -47,7 +47,7 @@ function init()
     radius = Math.round( (250) / Math.tan( Math.PI / itemLength ) );
     
     // set container 3d props
-    TweenMax.set(container, {perspective:600})
+    TweenMax.set(container, {perspective:4800})
     TweenMax.set(carousel, {z:-(radius)})
     
     // create carousel item props
@@ -63,7 +63,7 @@ function init()
     }
     
     // set mouse x and y props and looper ticker
-    window.addEventListener( "mousemove", onMouseMove, true );
+    // window.addEventListener( "mousemove", onMouseMove, true );
     ticker = setInterval( looper, 1000/60 );
     // window.removeEventListener( "mousemove", onMouseMove, true );
 }
@@ -80,7 +80,7 @@ function initTab2()
     radius = Math.round( (250) / Math.tan( Math.PI / itemLength ) );
     
     // set container 3d props
-    TweenMax.set(container, {perspective:600})
+    TweenMax.set(container, {perspective:4800})
     TweenMax.set(carousel, {z:-(radius)})
     
     // create carousel item props
@@ -95,7 +95,7 @@ function initTab2()
     }
     
     // set mouse x and y props and looper ticker
-    window.addEventListener( "mousemove", onMouseMove, true );
+    // window.addEventListener( "mousemove", onMouseMove, true );
     ticker = setInterval( looper, 1000/60 );
     // window.removeEventListener( "mousemove", onMouseMove, true );
 }
@@ -112,7 +112,7 @@ function initTab3()
     radius = Math.round( (250) / Math.tan( Math.PI / itemLength ) );
     
     // set container 3d props
-    TweenMax.set(container, {perspective:600})
+    TweenMax.set(container, {perspective:4800})
     TweenMax.set(carousel, {z:-(radius)})
     
     // create carousel item props
@@ -127,7 +127,7 @@ function initTab3()
     }
     
     // set mouse x and y props and looper ticker
-    window.addEventListener( "mousemove", onMouseMove, true );
+    // window.addEventListener( "mousemove", onMouseMove, true );
     ticker = setInterval( looper, 1000/60 );
     // window.removeEventListener( "mousemove", onMouseMove, true );
 }

@@ -722,11 +722,13 @@
 .edugate-tabs {
     margin-bottom: 40px;
     border: none;
-    display: inline-block
+    display: inline-block;
+    z-index:2;
 }
 
 .edugate-tabs li {
-    padding: 0 15px
+    padding: 0 15px;
+    z-index:2;
 }
 
 .edugate-tabs li .text {
@@ -8041,12 +8043,11 @@ a:hover
 	{
 		position:relative;
         margin-left:-500px;
-        margin-bottom:200px;
+        margin-bottom:400px;
 		left:50%;
 		top:50%;
 		width:1000px;
         height:500px;
-        
         margin-top:-200px;
 	}
 	
@@ -8083,7 +8084,7 @@ a:hover
 		/* font-size:72px; */
         left:50%;
 		top:50%;
-		margin-left:-160px;
+		margin-left:-160px; /* Note: change this if width is changed to keep 3d board looks organized i.e. -(width/2)   */
 		margin-top:-90px;
 		text-align:center;
 		padding-top:50px;
