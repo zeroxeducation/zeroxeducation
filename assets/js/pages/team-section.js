@@ -188,7 +188,7 @@ function roll_right(i)
 {   
     name_tab = '.tab' + i.toString() + '-carouselItem';
     itemLength = $( name_tab ).length;
-    addX += 360/itemLength;
+    addX -= 360/itemLength;
     TweenMax.to( carousel, 1, { rotationY:addX, rotationX:mouseY, ease:Quint.easeOut } )
 }
 
@@ -196,7 +196,7 @@ function roll_left(i)
 {
     name_tab = '.tab' + i.toString() + '-carouselItem';
     itemLength = $( name_tab ).length;
-    addX -= 360/itemLength;
+    addX += 360/itemLength;
     TweenMax.to( carousel, 1, { rotationY:addX, rotationX:mouseY, ease:Quint.easeOut } )
 }
 
