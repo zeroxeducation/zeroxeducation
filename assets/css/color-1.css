@@ -820,14 +820,15 @@
 
 .staff-item .staff-item-wrapper {
     width: 100%;
-    height: 300px;  /* Note: change this according to the actual board size*/
+    height: 450px;  /* Note: change this according to the actual board size*/
     overflow: hidden;
-    transition: all 0.8s ease
+    transition: all 0.8s ease;
+    /* margin-top:50px; */
 }
 
 .staff-item .staff-info {
     text-align: center;
-    overflow: hidden
+    overflow: hidden;
 }
 
 .staff-item .staff-info .staff-avatar {
@@ -845,7 +846,7 @@
 
 .staff-item .staff-info .staff-name {
     font-size: 18px;
-    color: white;
+    color: black;
     text-transform: uppercase;
     margin-bottom: 10px
 }
@@ -860,8 +861,9 @@
     display: none;
     text-align: justify;
     font-size: 13px;
-    height: 144px;
-    overflow: ;
+    /* height: 144px; */
+    margin-top:10px;
+    overflow: visible;
     transition: all 0.8s ease
 }
 
@@ -887,32 +889,33 @@
     transition: all 0.5s ease
 }
 
-.staff-item:hover {
+.staff-item:hover .staff-item-wrapper{
     /* background-color: rgba(0, 154, 255, .5); */
+    /* margin-top:100px; */
 }
 
 .staff-item:hover .staff-info .staff-avatar img {
     max-width: 90px;
-    margin-bottom: 10px
+    margin-bottom: 10px;
 }
 
 .staff-item:hover .staff-info .staff-name {
-    color: #fff;
+    /* color: #fff; */
     font-weight: bold
 }
 
 .staff-item:hover .staff-info .staff-job {
-    color: #fff;
+    /* color: #fff; */
     margin-bottom: 10px
 }
 
 .staff-item:hover .staff-info .staff-desctiption {
-    display: block
+    display: block;
 }
 
 .staff-item:hover .staff-socials a {
     color: #a4abaf;
-    background-color: #fff
+    background-color: #fff;
 }
 
 .staff-item:hover .staff-socials a.facebook:hover {
@@ -8077,12 +8080,12 @@ a:hover
 	.tab1-carouselItemInner, .tab2-carouselItemInner, .tab3-carouselItemInner
 	{
         width:320px;
-		height:500px;
+		height:650px;
 		position:absolute;
-		background-color: rgba(134,188,66, 1.0);
+		background-color: #FDC82F;
         border:5px solid rgb(234, 237, 245);
         /* box-shadow:0 1px 1px 1px rgba(127,127,127,0.3); */
-		color:white;
+		color:black;
 		/* font-size:72px; */
         left:50%;
 		top:50%;
