@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html coupert-item="9AF8D9A4E502F3784AD24272D81F0381">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>page-slider-js Example</title>
+    <link href="https://www.cssscript.com/wp-includes/css/sticky.css" rel="stylesheet" type="text/css">
+    <script src="https://www.googletagservices.com/activeview/js/current/osd.js?cb=%2Fr20100101"></script>
+    <script async="" src="http://www.google-analytics.com/analytics.js"></script>
+    <script src="https://pagead2.googlesyndication.com/pagead/js/r20191205/r20190131/show_ads_impl.js"
+        id="google_shimpl"></script>
+    <script src="./assets/js/components/slider.js"></script>
+    <link rel="stylesheet" href="./assets/css/slider.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'karla';
+        }
+
+        ul.topnav {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: transparent;
+            font-family: 'karla';
+        }
+
+        ul.topnav li {
+            float: left;
+        }
+
+        ul.topnav li a {
+            display: block;
+            color: #FFE820;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            position: relative;
+            transition: color 0.1s, padding 0.2s ease-in;
+            letter-spacing: 1px;
+        }
+
+        ul.topnav li a::before {
+
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 3px;
+            left: 20%;
+            height: 3px;
+            width: 58%;
+            background-color: #FFE820;
+            transform-origin: right top;
+            transform: scale(0, 1);
+            transition: color 0.1s, transform 0.2s ease-out;
+
+        }
+
+        ul.topnav li a:hover:not(.active)::before {
+            transform-origin: left top;
+            transform: scale(1, 1);
+        }
+
+        ul.topnav li a.active::before {
+            transform-origin: left top;
+            transform: scale(1, 1);
+        }
+
+
+
+        .styleBtn {
+            color: black;
+            padding: 10px 20px;
+            margin: 0px 30px;
+            border-radius: 20px;
+            text-decoration: none;
+            background: #FFE820;
+        }
+
+        @media screen and (max-width: 600px) {
+
+
+            ul.topnav li {
+                float: none;
+            }
+        }
+    </style>
+    <style>
+        .slider__page {
+            background: linear-gradient(225deg, #ffc27d, #ff8e93);
+            background-image: url('./assets/images/pages/page1.png');
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-size: cover;
+        }
+
+        /* 
+        #norwegian {
+            background: linear-gradient(225deg, #ffc27d, #ff8e93);
+
+        }
+
+        #french {
+            background: linear-gradient(#f3defc, #63a3e6);
+
+        }
+
+        #spanish {
+            background: linear-gradient(#f3defc, #63a3e6);
+
+        }
+
+        #hindi {
+            background: linear-gradient(#f0bed4, #a163f5);
+        }
+
+        #mandarin {
+            background: linear-gradient(#65cce1, #6365ec);
+        } */
+
+        section>span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 7vw;
+            font-family: sans-serif;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .main-title_top {
+            font-size: 24px;
+            color: #F8E71C;
+            font-family: 'Roboto Mono';
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .main-title_middle {
+            font-size: 56px;
+            color: #F8E71C;
+            font-family: 'Futura';
+            font-weight: 800;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .main-title_bottom {
+            font-size: 16px;
+            color: #F8E71C;
+            font-family: 'PingFang SC';
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .rocket {
+            background-image: url('./assets/images/icons/rocket.png');
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-size: contain;
+            width: 110px;
+            height: 110px;
+            position: absolute;
+            top: calc(50vh - 145px);
+            left: calc(50% + 110px);
+        }
+
+        .flexContainer {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .flexItem_main {
+            flex: 1;
+        }
+
+        .verticleContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            height: calc(100vh - 150px);
+
+        }
+
+        .horizontalContainerCenter {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+
+        }
+
+        .indicationLine {
+            background-image: url('./assets/images/icons/indicationLine.png');
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-size: contain;
+            width: 10%;
+            height: 5%;
+            min-height: 20px;
+            min-width: 40px;
+            display: inline-block;
+            margin: 0px 20px;
+        }
+
+        .arrow_up {
+            background-image: url('./assets/images/icons/arrow-up.png');
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-size: contain;
+            width: 100%;
+            height: 5%;
+            min-height: 20px;
+
+            margin-bottom: 40px;
+        }
+
+        .arrow_point {
+            background-image: url('./assets/images/icons/arrow-point.png');
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-size: contain;
+            width: 100%;
+            height: 14%;
+            min-height: 60px;
+
+            margin-bottom: 5px;
+        }
+
+
+
+        .textCenter {
+            color: #F8E71C;
+            font-family: 'Roboto Mono';
+            padding: 0px;
+            margin: 20px auto 0px auto;
+            font-size: 14px;
+            width: 30%;
+            min-width: 300px;
+            text-align: center;
+            height: 10%;
+        }
+
+        .textCenterFutura {
+            color: #F8E71C;
+            font-family: 'Futura';
+            padding: 0px;
+            margin: 20px auto 0px auto;
+            font-size: 14px;
+            width: 30%;
+            min-width: 300px;
+            text-align: center;
+            height: 10%;
+        }
+
+        .textCenter_grey {
+            color: #A39A9D;
+            font-family: 'PingFang SC';
+            padding: 0px;
+            margin: 20px auto 0px auto;
+            font-size: 14px;
+            width: 30%;
+            min-width: 300px;
+            text-align: center;
+            height: 10%;
+        }
+
+
+        .rocket_verticle {
+            background-image: url('./assets/images/icons/rocket_verticle.png');
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-size: contain;
+            min-width: 110px;
+            min-height: 110px;
+            width: 15%;
+            height: 15%;
+            margin-top: 10px;
+
+        }
+
+        .light {
+            background-image: url('./assets/images/icons/light.png');
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-size: contain;
+            width: 100%;
+            height: 30%;
+            min-height: 120px;
+
+            /* margin-bottom: -50px; */
+        }
+
+        .arrow_end {
+            background-image: url('./assets/images/icons/arrow-end.png');
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-size: contain;
+            min-width: 15px;
+            min-height: 70px;
+
+            margin-bottom: 5px;
+        }
+
+        .middle_line {
+
+            background-image: url('./assets/images/icons/middle-line.png');
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-size: contain;
+            min-width: 10px;
+            height: 70%;
+            min-height: 350px;
+
+        }
+
+        .full-width {
+            width: 100%
+        }
+
+        .left-half {
+            width: 40%;
+            min-width: 300px;
+        }
+
+        .right-half {
+            width: 40%;
+            min-width: 300px;
+        }
+
+        .labels {
+            color: #fff;
+            font-size: 18px;
+            display: inline-block;
+        }
+
+        .spacing {
+            margin: 20px 0px;
+        }
+
+        .community_dotline {
+            background-image: url('./assets/images/icons/community_dotline.png');
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-size: contain;
+            width: 100%;
+            height: 14%;
+            min-height: 100px;
+
+            margin-bottom: 5px;
+        }
+
+        .verticalYellowLine {
+            background-image: url('./assets/images/icons/verticalYellowLine.png');
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-size: contain;
+            width: 100%;
+            height: 14%;
+            min-height: 60px;
+
+            margin-bottom: 5px;
+        }
+
+        .spacing-20 {
+            height: 20px
+        }
+
+        .community_left {
+            background-image: url('./assets/images/icons/community.png');
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-size: contain;
+            min-width: 420px;
+            min-height: 400px;
+            width: 80%;
+            height: 60%;
+            margin-top: 10px;
+        }
+
+        .community_right {
+            background-image: url('./assets/images/icons/community-right.png');
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-size: contain;
+            min-width: 420px;
+            min-height: 400px;
+            width: 80%;
+            height: 60%;
+            margin-top: 10px;
+        }
+
+        .background_testimo {
+            background-image: url('./assets/images/icons/background-testimo.png');
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-size: contain;
+            min-width: 700px;
+            min-height: 450px;
+            width: 80%;
+            height: 60%;
+            margin: 2% auto;
+        }
+
+        .bg_ending {
+            background-image: url('./assets/images/icons/bg_ending.png');
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-size: cover;
+            max-width: 1800px;
+            max-height: 1200px;
+            width: 100%;
+            height: 100%;
+            /* margin: 2% auto; */
+        }
+
+        .screen_height {
+            height: 100vh;
+        }
+    </style>
+
+</head>
+
+
+<body class="slider__body">
+
+    <div class="slides slider__container">
+
+        <section id="norwegian" class="slider__page" data-slider-index="1">
+            <!-- header -->
+            <div class="flexContainer">
+                <div style="margin:20px 30px">
+                    <img src="assets/images/pages/zerox-logo.png" width="60" height="60">
+                </div>
+                <ul class="topnav flexItem_main" style="margin: 0 10%;text-align: center;">
+                    <li><a class="active" href="#home">Home</a></li>
+                    <li><a href="#service">Services</a></li>
+                    <li><a href="#culture">Culture</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#events">Events</a></li>
+                </ul>
+                <a class="styleBtn" href="/">Be one of us</a>
+            </div>
+            <div style="width:100%;position: relative;height:calc(100vh - 200px)">
+                <div style="margin: 0;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);">
+
+                    <p class="main-title_top">Our Culture</p>
+
+                    <p class="main-title_middle">Culture</p>
+
+                    <p class="main-title_bottom">From Zero to X 从无限到未来</p>
+
+                </div>
+                <div class="rocket">
+
+                </div>
+            </div>
+        </section>
+        <section id="french" class="slider__page" data-slider-index="2">
+            <div class="flexContainer">
+                <div style="margin:20px 30px">
+                    <img src="assets/images/pages/zerox-logo.png" width="60" height="60">
+                </div>
+                <ul class="topnav flexItem_main" style="margin: 0 10%;text-align: center;">
+                    <li><a class="active" href="#home">Home</a></li>
+                    <li><a href="#service">Services</a></li>
+                    <li><a href="#culture">Culture</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#events">Events</a></li>
+                </ul>
+                <a class="styleBtn" href="/">Be one of us</a>
+            </div>
+            <div class="verticleContainer">
+
+                <div class="arrow_up">
+
+                </div>
+                <div class="arrow_point">
+
+                </div>
+                <div class="textCenter">
+
+
+                    你真正需要的是：<br />
+                    锻造一条属于你自己的成功之路，解锁无限可能的未来
+                    专业经验的职场导师和人生导师，陪你一起做到。
+
+                </div>
+
+
+                <div class="light">
+                </div>
+
+
+                <div class="rocket_verticle">
+
+                </div>
+            </div>
+        </section>
+        <section id="spanish" class="slider__page" data-slider-index="3">
+            <!-- header -->
+            <div class="flexContainer">
+                <div style="margin:20px 30px">
+                    <img src="assets/images/pages/zerox-logo.png" width="60" height="60">
+                </div>
+                <ul class="topnav flexItem_main" style="margin: 0 10%;text-align: center;">
+                    <li><a class="active" href="#home">Home</a></li>
+                    <li><a href="#service">Services</a></li>
+                    <li><a href="#culture">Culture</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#events">Events</a></li>
+                </ul>
+                <a class="styleBtn" href="/">Be one of us</a>
+            </div>
+
+
+
+            <div class="verticleContainer">
+                <div class="textCenter_grey">
+                    HOW
+
+                </div>
+
+                <div class="arrow_up">
+
+                </div>
+
+                <div class="rocket_verticle">
+
+                </div>
+
+                <div class="textCenter_grey">WE</div>
+                <div class="textCenterFutura">
+
+                    FORGE A PATH TO UNLOCK<br />
+
+                    YOUR LIMITLESS FUTURE.
+
+                </div>
+                <div class="textCenter_grey">
+                    锻造理想之路 冲破人生边界
+
+                </div>
+                <div class="arrow_end">
+
+                </div>
+
+            </div>
+        </section>
+        <section id="hindi" class="slider__page" data-slider-index="4">
+
+            <!-- header -->
+            <div class="flexContainer">
+                <div style="margin:20px 30px">
+                    <img src="assets/images/pages/zerox-logo.png" width="60" height="60">
+                </div>
+                <ul class="topnav flexItem_main" style="margin: 0 10%;text-align: center;">
+                    <li><a class="active" href="#home">Home</a></li>
+                    <li><a href="#service">Services</a></li>
+                    <li><a href="#culture">Culture</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#events">Events</a></li>
+                </ul>
+                <a class="styleBtn" href="/">Be one of us</a>
+            </div>
+
+            <div class="verticleContainer full-width">
+                <div style="height: 150px; width: 1px;">
+                </div>
+                <div class="textCenter_grey" style="height: 200px">
+                    锻造理想之路
+
+                </div>
+                <div class="horizontalContainerCenter" style="height: 70%">
+                    <div class="left-half verticleContainer" style="height: 80%">
+                        <div class="spacing">
+                            <div class="labels">赋能迈进</div>
+                            <div class="indicationLine">
+                            </div>
+                        </div>
+                        <div class="spacing">
+                            <div class="labels">设立关卡</div>
+                            <div class="indicationLine">
+                            </div>
+                        </div>
+                        <div class="spacing">
+                            <div class="labels">找准方向</div>
+                            <div class="indicationLine">
+                            </div>
+                        </div>
+                        <div class="spacing">
+                            <div class="labels">看清前路</div>
+                            <div class="indicationLine">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="middle_line">
+
+                    </div>
+                    <div class="right-half verticleContainer">
+
+                    </div>
+
+                </div>
+
+
+                <div class="rocket_verticle">
+
+                </div>
+
+
+            </div>
+
+
+
+
+
+        </section>
+        <section id="mandarin" class="slider__page" data-slider-index="5">
+
+
+            <!-- header -->
+            <div class="flexContainer">
+                <div style="margin:20px 30px">
+                    <img src="assets/images/pages/zerox-logo.png" width="60" height="60">
+                </div>
+                <ul class="topnav flexItem_main" style="margin: 0 10%;text-align: center;">
+                    <li><a class="active" href="#home">Home</a></li>
+                    <li><a href="#service">Services</a></li>
+                    <li><a href="#culture">Culture</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#events">Events</a></li>
+                </ul>
+                <a class="styleBtn" href="/">Be one of us</a>
+            </div>
+
+
+
+            <div class="horizontalContainerCenter full-width">
+                <div style="height: 150px; width: 1px;"></div>
+                <div class="left-half">
+                    <div class="community_left">
+                    </div>
+
+                </div>
+
+                <div class="middle-part verticleContainer" style="margin-left:-80px; margin-right:-80px">
+                    <div class="community_dotline"></div>
+                    <div class="spacing-20"></div>
+                    <div class="textCenter_grey" style="color:#fff">
+                        这是一个共同成长的社区
+
+                    </div>
+                    <div class="spacing-20"></div>
+                    <div class="rocket_verticle">
+
+                    </div>
+                    <div class="verticalYellowLine spacing">
+
+                    </div>
+
+                </div>
+
+                <div class="right-half">
+
+                    <div class="community_right">
+
+                        <div style="font-size:10px;padding-top: 48%; text-align: center; color: #fff">
+                            平时一个人难以获取的资源、经验和机会，<br />
+
+                            整个社区一起，<br />
+
+                            精粹秘籍，供你修炼。<br />
+
+                            专业大师，人生教练，和修行者，<br />
+
+                            我们协力同行，在一个个的任务里，<br />
+
+                            规划路线，实践技能，过关升级，锻造经验和能力，<br />
+
+                            一路乘风破浪，直达精英目标。<br />
+
+                            <div class="textCenter_grey" style="font-size:12px;margin-top:60px">ZEROX</div>
+
+                        </div>
+
+
+                    </div>
+
+
+
+
+                </div>
+
+        </section>
+
+
+
+        <section id="testimo" class="slider__page" data-slider-index="6">
+
+
+            <!-- header -->
+            <div class="flexContainer">
+                <div style="margin:20px 30px">
+                    <img src="assets/images/pages/zerox-logo.png" width="60" height="60">
+                </div>
+                <ul class="topnav flexItem_main" style="margin: 0 10%;text-align: center;">
+                    <li><a class="active" href="#home">Home</a></li>
+                    <li><a href="#service">Services</a></li>
+                    <li><a href="#culture">Culture</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#events">Events</a></li>
+                </ul>
+                <a class="styleBtn" href="/">Be one of us</a>
+            </div>
+
+
+
+            <div class="full-width" style="text-align: center;">
+                <!-- <div style="height: 150px; width: 1px;"></div> -->
+                <div class="background_testimo">
+
+                </div>
+
+
+
+        </section>
+
+
+
+        <section id="ending" class="slider__page" data-slider-index="7">
+
+
+
+            <div class="full-width screen_height" style="text-align: center;">
+                <div class="bg_ending">
+                    <!-- header -->
+                    <div class="flexContainer">
+                        <div style="margin:20px 30px">
+                            <img src="assets/images/pages/zerox-logo.png" width="60" height="60">
+                        </div>
+                        <ul class="topnav flexItem_main" style="margin: 0 10%;text-align: center;">
+                            <li><a class="active" href="#home">Home</a></li>
+                            <li><a href="#service">Services</a></li>
+                            <li><a href="#culture">Culture</a></li>
+                            <li><a href="#team">Team</a></li>
+                            <li><a href="#events">Events</a></li>
+                        </ul>
+                        <a class="styleBtn" href="/">Be one of us</a>
+                    </div>
+
+
+                    <div class="verticleContainer" style="justify-content: flex-start;">
+                        <div class="rocket_verticle">
+                        </div>
+
+                        <div class="spacing-20"></div>
+
+                        <div class="verticalYellowLine spacing">
+
+                        </div>
+                        <div class="spacing-20"></div>
+                        <div class="spacing-20"></div>
+
+                        <div class="textCenter_grey" style="color:#fff">
+                            我们相信，<br />
+                            茫茫人海中，有这么一群人很特别。<br />
+                            他们对自己要求很高，觉得自己值得更高的格局。<br />
+                            <br />
+                            我们也是。<br />
+                            <br />
+                            但单凭一己之力难免事倍功半。<br />
+                            所以，我们邀请你与社区伙伴一起，<br />
+                            从零开始，锻造超我之路，直通无限未来。
+
+                        </div>
+
+
+                    </div>
+
+
+
+                </div>
+                <!-- <div style="height: 150px; width: 1px;"></div> -->
+
+
+            </div>
+
+
+
+        </section>
+
+
+
+
+
+
+    </div>
+
+    <script>
+        slider('.slides');
+    </script>
+    <div class="slider__indicators"><a class="slider__indicator slider__indicator--active"
+            data-slider-target-index="1"></a><a class="slider__indicator" data-slider-target-index="2"></a><a
+            class="slider__indicator" data-slider-target-index="3"></a><a class="slider__indicator"
+            data-slider-target-index="4"></a><a class="slider__indicator" data-slider-target-index="5"></a></div>
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'http://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-46156385-1', 'cssscript.com');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+    <iframe id="google_osd_static_frame_1019930775861" name="google_osd_static_frame"
+        style="display: none; width: 0px; height: 0px;"></iframe>
+
+</body><iframe id="google_esf" name="google_esf"
+    src="https://googleads.g.doubleclick.net/pagead/html/r20191205/r20190131/zrt_lookup.html#"
+    data-ad-client="ca-pub-2783044520727903" style="display: none;"></iframe>
+
+</html>
