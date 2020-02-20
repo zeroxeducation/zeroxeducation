@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html coupert-item="9AF8D9A4E502F3784AD24272D81F0381">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>page-slider-js Example</title>
+    <link href="https://www.cssscript.com/wp-includes/css/sticky.css" rel="stylesheet" type="text/css">
+    <script src="https://www.googletagservices.com/activeview/js/current/osd.js?cb=%2Fr20100101"></script>
+    <script async="" src="http://www.google-analytics.com/analytics.js"></script>
+    <script src="https://pagead2.googlesyndication.com/pagead/js/r20191205/r20190131/show_ads_impl.js"
+        id="google_shimpl"></script>
+    <script src="./assets/js/components/slider.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./assets/css/slider.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'karla';
+        }
+
+        ul.topnav {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: transparent;
+            font-family: 'karla';
+        }
+
+        ul.topnav li {
+            float: left;
+        }
+
+        ul.topnav li a {
+            display: block;
+            color: #FFE820;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            position: relative;
+            transition: color 0.1s, padding 0.2s ease-in;
+            letter-spacing: 1px;
+        }
+
+        ul.topnav li a::before {
+
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 3px;
+            left: 20%;
+            height: 3px;
+            width: 58%;
+            background-color: #FFE820;
+            transform-origin: right top;
+            transform: scale(0, 1);
+            transition: color 0.1s, transform 0.2s ease-out;
+
+        }
+
+        ul.topnav li a:hover:not(.active)::before {
+            transform-origin: left top;
+            transform: scale(1, 1);
+        }
+
+        ul.topnav li a.active::before {
+            transform-origin: left top;
+            transform: scale(1, 1);
+        }
+
+
+
+        .styleBtn {
+            color: black;
+            padding: 10px 20px;
+            margin: 0px 30px;
+            border-radius: 20px;
+            text-decoration: none;
+            background: #FFE820;
+        }
+
+        @media screen and (max-width: 600px) {
+
+
+            ul.topnav li {
+                float: none;
+            }
+        }
+    </style>
+    <style>
+
+
+.slider__indicators{
+    display:none!important;
+}
+
+@keyframes bgMove {
+  from {background-size: 100% 100%;}
+  to {background-size: 200% 100%;}
+}
+
+
+
+
+        .slider__page {
+
+            background: linear-gradient(225deg, #ffc27d, #ff8e93);
+            background-image: url('./assets/images/pages/page1.png');
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-size: cover;
+            background-size: 100% 100%;
+            animation: bgMove 60s linear infinite;
+         
+        }
+
+        section>span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 7vw;
+            font-family: sans-serif;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .main-title_top {
+            font-size: 24px;
+            color: #F8E71C;
+            font-family: 'Roboto Mono';
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .main-title_middle {
+            font-size: 56px;
+            color: #F8E71C;
+            font-family: 'Futura';
+            font-weight: 800;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .main-title_bottom {
+            font-size: 16px;
+            color: #F8E71C;
+            font-family: 'PingFang SC';
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .rocket {
+            background-image: url('./assets/images/icons/rocket.png');
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-size: contain;
+            width: 110px;
+            height: 110px;
+            position: absolute;
+            top: calc(50vh - 145px);
+            left: calc(50% + 110px);
+        }
+
+        .flexContainer {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .flexItem_main {
+            flex: 1;
+        }
+
+        .verticalContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            height: calc(100vh - 144px);
+            padding-bottom: 40px;
+
+        }
+
+        .horizontalContainerCenter {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+
+        }
+
+        .textCenter {
+            color: #F8E71C;
+            font-family: 'Roboto Mono';
+            padding: 0px;
+            margin: 20px auto 0px auto;
+            font-size: 14px;
+            width: 30%;
+            min-width: 300px;
+            text-align: center;
+            height: 10%;
+        }
+
+        .textCenterFutura {
+            color: #F8E71C;
+            font-family: 'Futura';
+            padding: 0px;
+            margin: 20px auto 0px auto;
+            font-size: 14px;
+            width: 30%;
+            min-width: 300px;
+            text-align: center;
+            height: 10%;
+        }
+
+        .textCenter_grey {
+            color: #A39A9D;
+            font-family: 'PingFang SC';
+            padding: 0px;
+            margin: 20px auto 0px auto;
+            font-size: 14px;
+            width: 30%;
+            min-width: 300px;
+            text-align: center;
+            height: 10%;
+        }
+
+
+        .rocket_verticle {
+            /* <img src="./assets/images/icons/rocketRun.gif" alt="rocket runnning"> */
+            background-image: url('./assets/images/icons/rocketRun.gif');
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-size: contain;
+            min-width: 110px;
+            min-height: 110px;
+            width: 15%;
+            height: 15%;
+            margin-top: 10px;
+
+        }
+        .rocket_verticle_logo {
+            /* <img src="./assets/images/icons/rocketRun.gif" alt="rocket runnning"> */
+            background-image: url('./assets/images/icons/rocket_logo.png');
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-size: contain;
+            min-width: 110px;
+            min-height: 110px;
+            width: 15%;
+            height: 15%;
+            margin-top: 10px;
+
+        }
+
+        .light {
+            background-image: url('./assets/images/icons/light.png');
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-size: contain;
+            width: 100%;
+            height: 30%;
+            min-height: 120px;
+
+            /* margin-bottom: -50px; */
+        }
+
+        .arrow_end {
+            background-image: url('./assets/images/icons/arrow-end.png');
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-size: contain;
+            min-width: 15px;
+            min-height: 120px;
+
+            margin-bottom: 5px;
+        }
+
+        .middle_line {
+
+            background-image: url('./assets/images/icons/middle-line.png');
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-size: contain;
+            min-width: 10px;
+            height: 70%;
+            min-height: 350px;
+
+        }
+
+        .full-width {
+            width: 100%
+        }
+
+        .full-height {
+            height: 100%
+        }
+
+        .left-half {
+            width: 45%;
+            min-width: 300px;
+        }
+
+        .right-half {
+            width: 45%;
+            min-width: 300px;
+        }
+
+        .labels {
+            color: #fff;
+            font-size: 18px;
+            display: inline-block;
+        }
+
+        .spacing {
+            margin: 20px 0px;
+        }
+
+        .verticalYellowLine {
+            background-image: url('./assets/images/icons/verticalYellowLine.png');
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-size: contain;
+            width: 100%;
+            height: 14%;
+            min-height: 60px;
+
+            margin-bottom: 5px;
+        }
+
+        .spacing-20 {
+            height: 20px
+        }
+
+        .bg_ending {
+            background-image: url('./assets/images/icons/team-bg.png');
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-size: cover;
+            max-width: 1800px;
+            max-height: 1200px;
+            width: 100%;
+            height: 100%;
+        }
+
+        .screen_height {
+            height: 100vh;
+        }
+        
+        .fontFamilyChinese {
+
+            font-family: 'PingFang SC';
+        }
+
+        .fontFamilyEnglish {
+
+            font-family: 'Futura';
+
+        }
+
+        .carousel {
+                    margin: 0 auto;
+                    width: 30%;
+                    min-width:400px;
+                    height: 300px;
+                    display: relative;
+                }
+                .carousel img {
+                    display: hidden; /* hide images until carousel prepares them */
+                    cursor: pointer; /* not needed if you wrap carousel items in links */
+                    height: 300px;
+                    width: 50%;
+                    max-width: 240px;
+                }
+
+                .video-doodly {
+                    width: 80%;
+                    max-width: 340px;
+                    height: 210px;
+                    margin-left: 10%;
+                    border-radius: 10px;
+                }
+
+                .video-interview {
+                     width: 60%;
+                     max-width: 500px;
+                    height: 260px;
+                    border-radius: 10px;
+
+                }
+    </style>
+
+</head>
+
+
+<body class="slider__body">
+
+    <div class="slides slider__container">
+        <section id="ending" class="slider__page" data-slider-index="1">
+
+            <div class="full-width screen_height" style="text-align: center;">
+                <div class="bg_ending">
+                    <!-- header -->
+                    <div class="flexContainer">
+                        <div style="margin:20px 30px">
+                            <img src="assets/images/pages/zerox-logo.png" width="60" height="60">
+                        </div>
+                        <ul class="topnav flexItem_main" style="margin: 0 10%;text-align: center;">
+                            <li><a class="active" href="#home">Home</a></li>
+                            <li><a href="#service">Services</a></li>
+                            <li><a href="#culture">Culture</a></li>
+                            <li><a href="#team">Team</a></li>
+                            <li><a href="#events">Events</a></li>
+                        </ul>
+                        <a class="styleBtn" href="/">Be one of us</a>
+                    </div>
+
+
+                    <div class="verticalContainer" style="justify-content: flex-start;">
+                        <div class="rocket_verticle_logo"></div>
+
+                        <div class="spacing-20"></div>
+
+                        <div class="spacing-20"></div>
+                        <div class="spacing-20"></div>
+ 
+                        <div class="textCenter_grey" style="color:#fff; margin-top: 20px">
+                            Staff Board Here<br />
+                        </div>
+                        
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- <script>
+            slider('.slides');
+        </script> -->
+
+</html>
