@@ -12,6 +12,13 @@
         id="google_shimpl"></script>
     <script src="./assets/js/components/slider.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+
+    <link type="text/css" rel="stylesheet" href="assets/css/color-1.css" id="color-skins">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="assets/libs/jquery/jquery-2.1.4.min.js"></script>
+    <script src="assets/libs/js-cookie/js.cookie.js"></script>
+
     <link rel="stylesheet" href="./assets/css/slider.css">
     <style>
         body {
@@ -422,14 +429,171 @@
 
                     <div class="verticalContainer" style="justify-content: flex-start;">
                         <div class="rocket_verticle_logo"></div>
-
-                        <div class="spacing-20"></div>
-
-                        <div class="spacing-20"></div>
-                        <div class="spacing-20"></div>
  
                         <div class="textCenter_grey" style="color:#fff; margin-top: 20px">
-                            Staff Board Here<br />
+                            <!-- TEAM SECTION-->
+                            <div class="section section-padding picture-gallery">
+                                <div class="picture-gallery-wrapper"><!-- Nav tabs-->
+                                    <div class="tab-content gallery-content">
+                                        <div id="study-abroad" role="tabpanel" class="tab-pane fade in active" >
+                                            <div id="tab1-contentContainer" class="trans3d" onmousedown="mouseDown()" onmouseup="mouseUp()">
+                                                <section id="tab1-carouselContainer" class="trans3d"> 
+                                                    <figure id="tab1-item1" class="tab1-carouselItem trans3d">
+                                                        <div class="tab1-carouselItemInner trans3d">
+                                                            <div class="staff-item">
+                                                                <div class="staff-item-wrapper">
+                                                                    <div class="staff-info">
+                                                                        <a href="#" class="staff-avatar"><img src="assets/images/team-section/Warren-photo-1.JPG" alt="" class="img-responsive"/></a>
+                                                                        <a href="#" class="staff-name">Warren Chen</a>
+
+                                                                        <div class="staff-job">Senior Solution Designer/Architect</div>
+                                                                        <div class="staff-desctiption">
+                                                                                <br>
+                                                                                公司：Westpac<br><br>
+                                                                                新南威尔士大学硕士毕业，金融产业高级IT方案架构师。
+                                                                                <br><br>
+                                                                                产业经验涵盖通信、能源、物流、教育、政府、金融。专注于提供企业级IT系统、平台、数字化转化等方面的IT解决方案。有着近10年甲/乙方项目以及团队组建、带领经验。熟悉咨询及商业类公司的架构、管理及运营模式。
+                                                                                <br><br>
+                                                                                希望用自己的专业性，面试官经验，对职业规划、个人发展的独到见解和系统性的规划信息，为伙伴们提供高效、有价值的职业咨询和规划指导，协助你迅速升值/职。
+                                                             
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="staff-socials"><a href="https://www.linkedin.com/in/warrenchen968/" class="twitter"><i class="fa fa-linkedin-square" style="font-size:30px"></i></a></div>
+                                                            </div>
+                                                        </div>
+                                                    </figure>
+                                                    <figure id="tab1-item2" class="tab1-carouselItem trans3d">
+                                                        <div class="tab1-carouselItemInner trans3d">
+                                                            <div class="staff-item">
+                                                                <div class="staff-item-wrapper">
+                                                                    <div class="staff-info">
+                                                                        <a href="#" class="staff-avatar"><img src="assets/images/team-section/Carmen-photo-1.JPG" alt="" class="img-responsive"/></a>
+                                                                        <a href="#" class="staff-name">Carmen Liang</a>
+
+                                                                        <div class="staff-job">Category & Market Insight Manager</div>
+                                                                        <div class="staff-desctiption">
+                                                                            <br>
+                                                                            资深培训师,市场咨询师，策略分析师。
+                                                                            <br><br>
+                                                                            中山大学岭南学院国际经济学士，期间官派留学就读市场专业，后毕业于全英前五的华威商学院(Warwick Business School)商科硕士。
+                                                                            <br><br>
+                                                                            逾十年FMCG公司从业经验，就业及服务多家五百强公司，多产业全职能经验，涵盖销售，市场，培训，品类管理，分析洞察和策略制定的经理岗位。负责多国家包含中国，澳洲和美国市场。特长商业洞察，提炼要点和presentation。深谙公司内部关系运作，面试经历丰富，有独特的经验总结。上一次跳槽经历在6周内面试4个经理职位拿到3个offer,成功率75%。
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="staff-socials"><a href="https://www.linkedin.com/in/carmen-jiawen-liang-669bb472/" class="twitter"><i class="fa fa-linkedin-square" style="font-size:30px"></i></a></div>
+                                                            </div>
+                                                        </div>
+                                                    </figure>
+                                                    <figure id="tab1-item3" class="tab1-carouselItem trans3d">
+                                                        <div class="tab1-carouselItemInner trans3d">
+                                                            <div class="staff-item">
+                                                                <div class="staff-item-wrapper">
+                                                                    <div class="staff-info"><a href="#" class="staff-avatar"><img src="assets/images/team-section/Ace-photo-1.png" alt="" class="img-responsive"/></a>
+                                                                        <a href="#" class="staff-name">Qiuyuan Yin</a>
+
+                                                                        <div class="staff-job">Software Engineer</div>
+                                                                        <div class="staff-desctiption">
+                                                                            <br>
+                                                                            公司：Xinja Bank
+                                                                            <br><br>
+                                                                            新南威尔士大学IT硕士，本科就读于中国双一流大学电子工程专业。现任职于Xinja Bank，担任资深软件工程师。
+                                                                            <br><br>
+                                                                            8年Web 前后端开发测试经验，精通JavaScript，Python等当下最火热的快速开发语言，以及Scala，Kotlin等新一代数据分析，APP开发语言。作为技术骨干/面试官，支撑公司从几人团队发展到七千八百万澳币估值。
+                                                                            <br><br>
+                                                                            技术多面手，精通网页前后端开发，移动端iOS/Android开发以及DevOps，Data Engineer等。
+                                                                                                                                        
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="staff-socials"><a href="https://www.linkedin.com/in/qiuyuan-yin-a89843b1/" class="twitter"><i class="fa fa-linkedin-square" style="font-size:30px"></i></a></div>
+                                                            </div>
+                                                        </div>
+                                                    </figure>
+                                                    <figure id="tab1-item4" class="tab1-carouselItem trans3d">
+                                                        <div class="tab1-carouselItemInner trans3d">
+                                                            <div class="staff-item">
+                                                                <div class="staff-item-wrapper">
+                                                                    <div class="staff-info"><a href="#" class="staff-avatar"><img src="assets/images/team-section/###" alt="" class="img-responsive"/></a>
+                                                                        <a href="#" class="staff-name">Chen Qiu</a>
+                                            
+                                                                        <div class="staff-job">Technical Business Analyst</div>
+                                                                        <div class="staff-desctiption">
+                                                                            <br>
+                                                                            公司：Origin Energy
+                                                                            <br><br>
+                                                                            本科毕业于悉尼大学，研究生毕业于剑桥大学。曾经就职于GE，SIEMENS，加入Unilever（联合利华），Woolworths Group管理培训生项目，现就职于Origin Energy 担任Trading Platform & Risk Mangement Technical Business Analyst。
+                                                                            <br><br>
+                                                                            多年的工作经验专注于产品开发, 线上支付功能优化以及资本交易系统完善。致力于帮助更多的华人留学生和新移民在澳洲找到合适的工作，融入主流工作文化环境。与此同时，为更多回国发展的留学生提供贴合国内工作机会的职业培训。
+                                                                            <br><br>
+                                                                            希望能够为IT背景或Non-IT背景的海外学生们提供更广阔的职业发展空间和更多元化的求职帮助。
+                                                                                                                      
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="staff-socials"><a href="https://www.linkedin.com/in/steve-qiu-544bb778/" class="twitter"><i class="fa fa-linkedin-square" style="font-size:30px"></i></a></div>                                                            </div>
+                                                        </div>
+                                                    </figure>
+                                                    <figure id="tab1-item5" class="tab1-carouselItem trans3d">
+                                                        <div class="tab1-carouselItemInner trans3d">
+                                                            <div class="staff-item">
+                                                                <div class="staff-item-wrapper">
+                                                                    <div class="staff-info"><a href="#" class="staff-avatar"><img src="assets/images/team-section/###" alt="" class="img-responsive"/></a>
+                                                                        <a href="#" class="staff-name">Mingrui Li</a>
+                                            
+                                                                        <div class="staff-job">Tech Lead</div>
+                                                                        <div class="staff-desctiption">
+                                                                            <br>
+                                                                            公司：Westpac Group
+                                                                            <br><br>
+                                                                            新南威尔士大学IT硕士，本科就读于中国排名第一的计算机专业。现就职于Westpac group，担任高级软件工程师/ Tech lead。
+                                                                            <br><br>
+                                                                            10年软件开发工作经验，精通Java，相关framework和系统架构。进入银行系统开发领域6年，架构设计并开发了澳洲前10大银行其中一半银行的online banking system。作为面试官面试过多个Junior, Mid或Senior 的应聘者。对技术面试的准备和表现有深刻的见解和独到的建议。
+                                                                            <br><br>
+                                                                            擅长将纷繁复杂的知识用浅显易懂的个性化语言来表述。
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="staff-socials"><a href="https://www.linkedin.com/in/mingruili/" class="twitter"><i class="fa fa-linkedin-square" style="font-size:30px"></i></a></div>                                                            </div>
+                                                        </div>
+                                                    </figure>
+                                                    <figure id="tab1-item6" class="tab1-carouselItem trans3d">
+                                                        <div class="tab1-carouselItemInner trans3d">
+                                                            <div class="staff-item">
+                                                                <div class="staff-item-wrapper">
+                                                                    <div class="staff-info"><a href="#" class="staff-avatar"><img src="assets/images/team-section/###" alt="" class="img-responsive"/></a>
+                                                                        <a href="#" class="staff-name">Steven Zhao</a>
+                                            
+                                                                        <div class="staff-job">Senior Software Consultant</div>
+                                                                        <div class="staff-desctiption">
+                                                                            <br>
+                                                                            公司：NIB Insurance
+                                                                            <br><br>
+                                                                            高级软件工程师，微软技术栈顾问
+                                                                            <br><br>
+                                                                            毕业于新南威尔士IT专业硕士学位。投入.NET全栈 和云服务的开发工作并拥有10年以上的丰富项目经验。 本人参与金融, 银行, 保险, 数字营销等行业软件产品设计与架构。曾服务于 Readify, Hannover Reinsurance, Indue, Incentiapay, Entertainment Book, Gruden Group, Telstra等知名公司企业. 现担任NIB  Insurance 高级工程师, 为客户提供技术方案制定与实现。对技术面试技巧有着深刻的认识见解。
+                                                                            <br><br>
+                                                                            希望分享自己的经验故事，帮组学生成功踏出自己IT职业的第一步。
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="staff-socials"><a href="https://www.linkedin.com/in/xu-zhao-75a45726/" class="twitter"><i class="fa fa-linkedin-square" style="font-size:30px"></i></a></div>                                                            </div>
+                                                        </div>
+                                                    </figure>
+                                                </section>
+                                            </div>
+                                            <div class="team-section-slider" style="position:relative">
+                                                <div class="team-prev" onclick=roll_left(1)><i class="fa fa-angle-left" style="font-size:30px;padding-top:13px"></i></div>
+                                                <div class="team-next" onclick=roll_right(1)><i class="fa fa-angle-right" style="font-size:30px;padding-top:13px"></i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         
                     </div>
@@ -443,5 +607,8 @@
         <!-- <script>
             slider('.slides');
         </script> -->
+
+        <script src="assets/libs/TweenMax.min.js"></script>
+        <script src="assets/js/pages/team-section.js"></script>
 
 </html>
