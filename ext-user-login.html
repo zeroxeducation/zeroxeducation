@@ -135,7 +135,7 @@
       }
       function render() {
         cloudParticles.forEach(p => {
-          p.rotation.z -=0.001;
+          p.rotation.z -=0.004;
         });
         composer.render(0.1);
         requestAnimationFrame(render);
