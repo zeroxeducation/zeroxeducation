@@ -2,1291 +2,560 @@
 <html coupert-item="9AF8D9A4E502F3784AD24272D81F0381">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>page-slider-js Example</title>
-    <link href="https://www.cssscript.com/wp-includes/css/sticky.css" rel="stylesheet" type="text/css">
-    <script src="https://www.googletagservices.com/activeview/js/current/osd.js?cb=%2Fr20100101"></script>
-    <script async="" src="http://www.google-analytics.com/analytics.js"></script>
-    <script src="https://pagead2.googlesyndication.com/pagead/js/r20191205/r20190131/show_ads_impl.js"
-        id="google_shimpl"></script>
-    <script src="./assets/js/components/slider.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="./assets/css/slider.css">
-    <style>
-        body {
-            margin: 0;
-            font-family: 'karla';
-        }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>page-slider-js Example</title>
+  <link href="https://www.cssscript.com/wp-includes/css/sticky.css" rel="stylesheet" type="text/css">
+  <script src="https://www.googletagservices.com/activeview/js/current/osd.js?cb=%2Fr20100101"></script>
+  <script async="" src="http://www.google-analytics.com/analytics.js"></script>
+  <script src="https://pagead2.googlesyndication.com/pagead/js/r20191205/r20190131/show_ads_impl.js"
+    id="google_shimpl"></script>
+  <script src="./assets/js/components/slider.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="./assets/css/slider.css">
+  <link rel="stylesheet" href="./assets/css/culture/culture.css">
 
-        ul.topnav {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: transparent;
-            font-family: 'karla';
-        }
-
-        ul.topnav li {
-            float: left;
-        }
-
-        ul.topnav li a {
-            display: block;
-            color: #FFE820;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            position: relative;
-            transition: color 0.1s, padding 0.2s ease-in;
-            letter-spacing: 1px;
-        }
-
-        ul.topnav li a::before {
-
-            content: '';
-            display: block;
-            position: absolute;
-            bottom: 3px;
-            left: 20%;
-            height: 3px;
-            width: 58%;
-            background-color: #FFE820;
-            transform-origin: right top;
-            transform: scale(0, 1);
-            transition: color 0.1s, transform 0.2s ease-out;
-
-        }
-
-        ul.topnav li a:hover:not(.active)::before {
-            transform-origin: left top;
-            transform: scale(1, 1);
-        }
-
-        ul.topnav li a.active::before {
-            transform-origin: left top;
-            transform: scale(1, 1);
-        }
-
-
-
-        .styleBtn {
-            color: black;
-            padding: 10px 20px;
-            margin: 0px 30px;
-            border-radius: 20px;
-            text-decoration: none;
-            background: #FFE820;
-        }
-
-        @media screen and (max-width: 600px) {
-
-
-            ul.topnav li {
-                float: none;
-            }
-        }
-    </style>
-    <style>
-
-
-.slider__indicators{
-    display:none!important;
-}
-
-@keyframes bgMove {
-  from {background-size: 100% 100%;}
-  to {background-size: 200% 100%;}
-}
-
-
-
-
-        .slider__page {
-
-            background: linear-gradient(225deg, #ffc27d, #ff8e93);
-            background-image: url('./assets/images/pages/page1.png');
-            background-repeat: no-repeat;
-            background-position: 50% 50%;
-            background-size: cover;
-            background-size: 100% 100%;
-            animation: bgMove 60s linear infinite;
-         
-        }
-
-
-        section>span {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 7vw;
-            font-family: sans-serif;
-            text-transform: uppercase;
-            color: #fff;
-        }
-
-        .main-title_top {
-            font-size: 24px;
-            color: #F8E71C;
-            font-family: 'Roboto Mono';
-            padding: 0px;
-            margin: 0px;
-        }
-
-        .main-title_middle {
-            font-size: 56px;
-            color: #F8E71C;
-            font-family: 'Futura';
-            font-weight: 800;
-            padding: 0px;
-            margin: 0px;
-        }
-
-        .main-title_bottom {
-            font-size: 16px;
-            color: #F8E71C;
-            font-family: 'PingFang SC';
-            padding: 0px;
-            margin: 0px;
-        }
-
-        .rocket {
-            background-image: url('./assets/images/icons/rocket.png');
-            background-repeat: no-repeat;
-            background-position: 50% 50%;
-            background-size: contain;
-            width: 110px;
-            height: 110px;
-            position: absolute;
-            top: calc(50vh - 145px);
-            left: calc(50% + 110px);
-        }
-
-        .flexContainer {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .flexItem_main {
-            flex: 1;
-        }
-
-        .verticalContainer {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            height: calc(100vh - 144px);
-            padding-bottom: 40px;
-
-        }
-
-        .horizontalContainerCenter {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-
-        }
-
-        .indicationLine {
-            background-image: url('./assets/images/icons/indicationLine.png');
-            background-repeat: no-repeat;
-            background-position: 50% 50%;
-            background-size: contain;
-            width: 10%;
-            height: 5%;
-            min-height: 20px;
-            min-width: 40px;
-            display: inline-block;
-            margin: 0px 20px;
-        }
-
-        .arrow_up {
-            background-image: url('./assets/images/icons/arrow-up.png');
-            background-repeat: no-repeat;
-            background-position: 50% 50%;
-            background-size: contain;
-            width: 100%;
-            height: 5%;
-            min-height: 20px;
-
-            margin-bottom: 40px;
-        }
-
-        .arrow_point {
-            background-image: url('./assets/images/icons/arrow-point.png');
-            background-repeat: no-repeat;
-            background-position: 50% 50%;
-            background-size: contain;
-            width: 100%;
-            height: 14%;
-            min-height: 60px;
-
-            margin-bottom: 5px;
-        }
-
-
-
-        .textCenter {
-            color: #F8E71C;
-            font-family: 'Roboto Mono';
-            padding: 0px;
-            margin: 20px auto 0px auto;
-            font-size: 14px;
-            width: 30%;
-            min-width: 300px;
-            text-align: center;
-            height: 10%;
-        }
-
-        .textCenterFutura {
-            color: #F8E71C;
-            font-family: 'Futura';
-            padding: 0px;
-            margin: 20px auto 0px auto;
-            font-size: 14px;
-            width: 30%;
-            min-width: 300px;
-            text-align: center;
-            height: 10%;
-        }
-
-        .textCenter_grey {
-            color: #A39A9D;
-            font-family: 'PingFang SC';
-            padding: 0px;
-            margin: 20px auto 0px auto;
-            font-size: 14px;
-            width: 30%;
-            min-width: 300px;
-            text-align: center;
-            height: 10%;
-        }
-
-
-        .rocket_verticle {
-            /* <img src="./assets/images/icons/rocketRun.gif" alt="rocket runnning"> */
-            background-image: url('./assets/images/icons/rocketRun.gif');
-            background-repeat: no-repeat;
-            background-position: 50% 50%;
-            background-size: contain;
-            min-width: 110px;
-            min-height: 110px;
-            width: 15%;
-            height: 15%;
-            margin-top: 10px;
-
-        }
-        .rocket_verticle_logo {
-            /* <img src="./assets/images/icons/rocketRun.gif" alt="rocket runnning"> */
-            background-image: url('./assets/images/icons/rocket_logo.png');
-            background-repeat: no-repeat;
-            background-position: 50% 50%;
-            background-size: contain;
-            min-width: 110px;
-            min-height: 110px;
-            width: 15%;
-            height: 15%;
-            margin-top: 10px;
-
-        }
-
-        .light {
-            background-image: url('./assets/images/icons/light.png');
-            background-repeat: no-repeat;
-            background-position: 50% 50%;
-            background-size: contain;
-            width: 100%;
-            height: 30%;
-            min-height: 120px;
-
-            /* margin-bottom: -50px; */
-        }
-
-        .arrow_end {
-            background-image: url('./assets/images/icons/arrow-end.png');
-            background-repeat: no-repeat;
-            background-position: 50% 50%;
-            background-size: contain;
-            min-width: 15px;
-            min-height: 120px;
-
-            margin-bottom: 5px;
-        }
-
-        .middle_line {
-
-            background-image: url('./assets/images/icons/middle-line.png');
-            background-repeat: no-repeat;
-            background-position: 50% 50%;
-            background-size: contain;
-            min-width: 10px;
-            height: 70%;
-            min-height: 350px;
-
-        }
-
-        .full-width {
-            width: 100%
-        }
-
-        .full-height {
-            height: 100%
-        }
-
-        .left-half {
-            width: 45%;
-            min-width: 300px;
-        }
-
-        .right-half {
-            width: 45%;
-            min-width: 300px;
-        }
-
-        .labels {
-            color: #fff;
-            font-size: 18px;
-            display: inline-block;
-        }
-
-        .spacing {
-            margin: 20px 0px;
-        }
-
-        .community_dotline {
-            background-image: url('./assets/images/icons/community_dotline.png');
-            background-repeat: no-repeat;
-            background-position: 50% 50%;
-            background-size: contain;
-            width: 100%;
-            height: 14%;
-            min-height: 100px;
-
-            margin-bottom: 5px;
-        }
-
-        .verticalYellowLine {
-            background-image: url('./assets/images/icons/verticalYellowLine.png');
-            background-repeat: no-repeat;
-            background-position: 50% 50%;
-            background-size: contain;
-            width: 100%;
-            height: 14%;
-            min-height: 60px;
-
-            margin-bottom: 5px;
-        }
-
-        .spacing-20 {
-            height: 20px
-        }
-
-        .community_left {
-            background-image: url('./assets/images/icons/community.png');
-            background-repeat: no-repeat;
-            background-position: 50% 50%;
-            background-size: contain;
-            min-width: 420px;
-            min-height: 400px;
-            width: 80%;
-            height: 60%;
-            margin-top: 10px;
-        }
-
-        .community_right {
-            background-image: url('./assets/images/icons/community-right.png');
-            background-repeat: no-repeat;
-            background-position: 50% 50%;
-            background-size: contain;
-            min-width: 420px;
-            min-height: 400px;
-            width: 80%;
-            height: 60%;
-            margin-top: 10px;
-        }
-
-        .background_characters {
-            background-image: url('./assets/images/icons/lightGreyBg.png');
-            background-repeat: no-repeat;
-            background-position: 50% 50%;
-            background-size: contain;
-            min-width: 600px;
-            min-height: 470px;
-            width: 64%;
-            height: 60%;
-            margin: 2% auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-        
-
-        .left_characters {
-            background-image: url('./assets/images/icons/left-twocharaters.png');
-            background-repeat: no-repeat;
-            background-position: 50% 50%;
-            background-size: contain;
-            min-width: 200px;
-            min-height: 470px;
-            width: 16%;
-            height: 60%;
-            margin: 2% auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: absolute;
-            left:0;
-            
-        }
-        
-
-        .heroImage {
-
-            background-image: url('./assets/images/icons/HeroImage.png');
-            background-repeat: no-repeat;
-            background-position: 50% 50%;
-            width: 20%;
-            height: 10%;
-            background-size: contain;
-            min-width: 220px;
-            min-height: 280px;
-            position: absolute;
-            z-index: 20;
-            right: 0;
-            bottom: 5px;
-            transform: rotate(5deg);
-
-        }
-
-        .bg_ending {
-            background-image: url('./assets/images/icons/bg_ending.png');
-            background-repeat: no-repeat;
-            background-position: 50% 50%;
-            background-size: cover;
-            max-width: 1800px;
-            max-height: 1200px;
-            width: 100%;
-            height: 100%;
-        }
-
-        .screen_height {
-            height: 100vh;
-        }
-
-        .internProgramicon {
-            background-image: url('./assets/images/icons/internprogram.jpg');
-            background-repeat: no-repeat;
-            background-position: 50% 50%;
-            background-size: cover;
-            max-width: 800px;
-            max-height: 300px;
-        }
-
-        .services-bg {
-            background-image: url("./assets/images/icons/lightGrey_Bg.png");
-            background-repeat: no-repeat;
-            background-position: 50% 50%;
-            background-size: cover;
-            width: 20%;
-            height: 70px;
-            margin: 0 10px;
-            max-width: 300px;
-            max-height: 100px;
-            min-width: 150px;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .services-bg:hover {
-            background-image: url(./assets/images/icons/blueBg_onhover.png);
-            background-repeat: no-repeat;
-            background-position: 50% 50%;
-            background-size: contain;
-            width: 20%;
-            height: 100%;
-            margin: 0 10px;
-            max-width: 300px;
-            max-height: 100px;
-            min-width: 150px;
-            position: relative;
-            cursor: pointer;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-        }
-
-
-
-
-
-        .services-bg p {
-            color: white;
-            font-size: 0.75rem;
-
-        }
-
-        .service-topic {
-
-            text-align: center;
-
-        }
-
-        .fontFamilyChinese {
-
-            font-family: 'PingFang SC';
-        }
-
-        .fontFamilyEnglish {
-
-            font-family: 'Futura';
-
-        }
-
-
-
-        .zerox-under-topic {
-
-            bottom: 0;
-            right: 0;
-            position: absolute;
-            padding: 0;
-            margin: 14px;
-        }
-
-        .earth {
-            background-repeat: no-repeat;
-            background-position: 50% 100%;
-            background-size: contain;
-            width: 100%;
-            top: 30px;
-            text-align: center;
-            min-height: 100%;
-            margin: 0 auto;
-            max-width: 300px;
-            position: relative;
-            z-index: 0;
-            height: 100%;
-            display: none;
-
-        }
-
-        .explore_earth {
-            background-image: url(./assets/images/icons/explore_earth.png);
-
-        }
-
-
-
-        .intern_earth {
-            background-image: url(./assets/images/icons/intern_earth.png);
-
-        }
-
-
-        .lifeCoach_earth {
-            background-image: url(./assets/images/icons/lifeCoach_earth.png);
-
-        }
-
-        .career_earth {
-            background-image: url(./assets/images/icons/career_earth.png);
-        }
-
-        .sub-text-half {
-            width: 70%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 100px;
-
-
-        }
-
-        .sub-icon-half {
-            width: 50%;
-            min-width: 150px;
-            height: 100%;
-            display: flex;
-
-        }
-
-        #left-text-part {
-            display: none;
-        }
-
-        #right-text-part {
-            display: none;
-        }
-
-        .topic-icon {
-            width: 100%;
-            height: 100%;
-            background-repeat: no-repeat;
-            background-position: 50% 100%;
-            background-size: contain;
-            max-width: 100px;
-            position: relative;
-            z-index: 0;
-            display: none;
-        }
-
-        #icon_01 {
-            background-image: url(./assets/images/icons/icon_01.png);
-        }
-
-        #icon_02 {
-            background-image: url(./assets/images/icons/icon_02.png);
-
-        }
-
-        #icon_03 {
-            background-image: url(./assets/images/icons/icon_03.png);
-
-        }
-
-        #icon_04 {
-            background-image: url(./assets/images/icons/icon_04.png);
-
-        }
-
-        .topic {
-            font-size: 15px;
-            color: white;
-            font-weight: 300;
-
-        }
-
-        .topic-description {
-            font-size: 14px;
-            color: white;
-            margin: 0px 10px;
-            font-stretch: normal;
-            font-style: normal;
-            line-height: normal;
-            letter-spacing: normal;
-            text-align: center;
-            font-weight: 300;
-        }
-
-        .learnMore {
-            background-color: rgba(199, 234, 228, 0.2);
-            border: solid 0.5px #fff;
-            font-family: 'PingFang SC';
-            font-size: 12px;
-            font-weight: 300;
-            font-stretch: normal;
-            font-style: normal;
-            line-height: normal;
-            letter-spacing: normal;
-            text-align: center;
-            color: #ffffff;
-            height: 17px;
-            width: 76px;
-            text-decoration: none;
-            padding: 5px;
-            margin: 20px;
-        }
-
-
-        .carousel {
-                    margin: 0 auto;
-                    width: 30%;
-                    min-width:400px;
-                    height: 300px;
-                    display: relative;
-                }
-                .carousel img {
-                    display: hidden; /* hide images until carousel prepares them */
-                    cursor: pointer; /* not needed if you wrap carousel items in links */
-                    height: 300px;
-                    width: 50%;
-                    max-width: 240px;
-                }
-
-                .video-doodly {
-                    width: 80%;
-                    max-width: 340px;
-                    height: 210px;
-                    margin-left: 10%;
-                    border-radius: 10px;
-                }
-
-                .video-interview {
-                     width: 60%;
-                     max-width: 500px;
-                    height: 260px;
-                    border-radius: 10px;
-
-                }
-    </style>
 
 </head>
 
 
-<body class="slider__body">
+<body class="slider__body" style="position:relative">
 
-    <div class="slides slider__container">
+  <div class="slides slider__container" style="position:relative">
+    <!-- header -->
+    <div class="flexContainer">
+      <div style="margin:20px 30px">
+        <img src="assets/images/pages/zerox-logo.png" width="60" height="60">
+      </div>
+      <ul class="topnav flexItem_main" style="margin: 0 10%;text-align: center;">
+        <li><a class="active" href="#home">Home</a></li>
+        <li><a href="#service">Services</a></li>
+        <li><a href="#culture">Culture</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#events">Events</a></li>
+      </ul>
+      <a class="styleBtn" href="/">Be one of us</a>
+    </div>
 
-        <section id="norwegian" class="slider__page" data-slider-index="1">
-            <!-- header -->
-            <div class="flexContainer">
-                <div style="margin:20px 30px">
-                    <img src="assets/images/pages/zerox-logo.png" width="60" height="60">
-                </div>
-                <ul class="topnav flexItem_main" style="margin: 0 10%;text-align: center;">
-                    <li><a class="active" href="#home">Home</a></li>
-                    <li><a href="#service">Services</a></li>
-                    <li><a href="#culture">Culture</a></li>
-                    <li><a href="#team">Team</a></li>
-                    <li><a href="#events">Events</a></li>
-                </ul>
-                <a class="styleBtn" href="/">Be one of us</a>
-            </div>
-            <div style="width:100%;position: relative;height:calc(100vh - 200px)">
-                <div style="margin: 0;
+
+    <section id="frontpage" class="slider__page" data-slider-index="1">
+      <!-- header -->
+
+      <!-- ----body--- -->
+      <div style="width:100%;position: relative;height:calc(100vh - 200px)">
+        <div style="margin: 0;
                 position: absolute;
                 top: 50%;
                 left: 50%;
                 -ms-transform: translate(-50%, -50%);
                 transform: translate(-50%, -50%);">
 
-                    <p class="main-title_top">Our Culture</p>
+          <p class="main-title_top">Our Culture</p>
 
-                    <p class="main-title_middle">Culture</p>
+          <p class="main-title_middle">Culture</p>
 
-                    <p class="main-title_bottom">From Zero to X , 从无限到未来</p>
+          <p class="main-title_bottom">From Zero to X , 从无限到未来</p>
 
-                </div>
-                <div class="rocket">
+        </div>
+        <div class="rocket">
 
-                </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="questions" class="slider__page" data-slider-index="2">
+
+
+      <!-- ------body------ -->
+      <div class="verticalContainer">
+
+        <div class="carouselQuestions">
+          <!-- -----carousel----- -->
+          <div class="carousel">
+            <img src="./assets/images/icons/q1.png" alt="Image 1" />
+            <img src="./assets/images/icons/q2.png" alt="Image 2" />
+            <img src="./assets/images/icons/q3.png" alt="Image 3" />
+            <img src="./assets/images/icons/q4.png" alt="Image 4" />
+            <img src="./assets/images/icons/q5.png" alt="Image 5" />
+          </div>
+
+
+        </div>
+
+        <div class="rocket_verticle">
+
+        </div>
+      </div>
+    </section>
+
+
+    <section id="french" class="slider__page" data-slider-index="3">
+      <div class="flexContainer">
+        <div style="margin:20px 30px">
+          <img src="assets/images/pages/zerox-logo.png" width="60" height="60">
+        </div>
+        <ul class="topnav flexItem_main" style="margin: 0 10%;text-align: center;">
+          <li><a class="active" href="#home">Home</a></li>
+          <li><a href="#service">Services</a></li>
+          <li><a href="#culture">Culture</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#events">Events</a></li>
+        </ul>
+        <a class="styleBtn" href="/">Be one of us</a>
+      </div>
+      <div class="verticalContainer">
+
+        <div class="arrow_up">
+
+        </div>
+        <div class="arrow_point">
+
+        </div>
+        <div class="textCenter">
+
+
+          你真正需要的是：<br />
+          锻造一条属于你自己的成功之路，解锁无限可能的未来
+          专业经验的职场导师和人生导师，陪你一起做到。
+
+        </div>
+
+
+        <div class="light">
+        </div>
+
+
+        <div class="rocket_verticle">
+        </div>
+
+      </div>
+    </section>
+    <section id="spanish" class="slider__page" data-slider-index="4">
+      <!-- header -->
+      <div class="flexContainer">
+        <div style="margin:20px 30px">
+          <img src="assets/images/pages/zerox-logo.png" width="60" height="60">
+        </div>
+        <ul class="topnav flexItem_main" style="margin: 0 10%;text-align: center;">
+          <li><a class="active" href="#home">Home</a></li>
+          <li><a href="#service">Services</a></li>
+          <li><a href="#culture">Culture</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#events">Events</a></li>
+        </ul>
+        <a class="styleBtn" href="/">Be one of us</a>
+      </div>
+
+
+
+      <div class="verticalContainer">
+
+
+        <div class="arrow_up">
+
+        </div>
+
+        <div class="rocket_verticle">
+        </div>
+
+        <div class="textCenter_grey" style="font-size:14px;margin-bottom: 10px">WE</div>
+        <img src="assets/images/pages/zerox-logo.png" width="50" height="50">
+        <div class="textCenterFutura" style="font-size:14px;">
+
+          FORGE A PATH TO UNLOCK<br />
+
+          YOUR LIMITLESS FUTURE.
+
+        </div>
+        <div class="textCenter_grey" style="font-size:14px">
+          锻造理想之路 冲破人生边界
+
+        </div>
+        <div class="arrow_end">
+
+        </div>
+
+      </div>
+    </section>
+    <section id="hindi" class="slider__page" data-slider-index="5">
+
+      <!-- header -->
+      <div class="flexContainer">
+        <div style="margin:20px 30px">
+          <img src="assets/images/pages/zerox-logo.png" width="60" height="60">
+        </div>
+        <ul class="topnav flexItem_main" style="margin: 0 10%;text-align: center;">
+          <li><a class="active" href="#home">Home</a></li>
+          <li><a href="#service">Services</a></li>
+          <li><a href="#culture">Culture</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#events">Events</a></li>
+        </ul>
+        <a class="styleBtn" href="/">Be one of us</a>
+      </div>
+
+      <div class="verticalContainer full-width">
+        <div style="height: 150px; width: 1px;">
+        </div>
+        <div class="textCenter_grey" style="height: 200px">
+          锻造理想之路
+
+        </div>
+        <div class="horizontalContainerCenter" style="height: 70%">
+          <div class="left-half verticalContainer" style="height: 80%;">
+            <div class="spacing">
+              <div class="labels">赋能迈进</div>
+              <div class="indicationLine">
+              </div>
             </div>
-        </section>
-
-        <section id="questions" class="slider__page" data-slider-index="2">
-            <!-- header -->
-            <div class="flexContainer">
-                <div style="margin:20px 30px">
-                    <img src="assets/images/pages/zerox-logo.png" width="60" height="60">
-                </div>
-                <ul class="topnav flexItem_main" style="margin: 0 10%;text-align: center;">
-                    <li><a class="active" href="#home">Home</a></li>
-                    <li><a href="#service">Services</a></li>
-                    <li><a href="#culture">Culture</a></li>
-                    <li><a href="#team">Team</a></li>
-                    <li><a href="#events">Events</a></li>
-                </ul>
-                <a class="styleBtn" href="/">Be one of us</a>
+            <div class="spacing">
+              <div class="labels">设立关卡</div>
+              <div class="indicationLine">
+              </div>
             </div>
-
-            <!-- ------body------ -->
-            <div class="verticalContainer">
-
-                <div class="carouselQuestions">
-                    <!-- -----carousel----- -->
-                    <div class="carousel">
-                        <img src="./assets/images/icons/q1.png" alt="Image 1" />
-                        <img src="./assets/images/icons/q2.png" alt="Image 2" />
-                        <img src="./assets/images/icons/q3.png" alt="Image 3" />
-                        <img src="./assets/images/icons/q4.png" alt="Image 4" />
-                        <img src="./assets/images/icons/q5.png" alt="Image 5" />
-                         </div>
-
-
-                </div>
-
-                <div class="rocket_verticle">
-                
-                </div>
+            <div class="spacing">
+              <div class="labels">找准方向</div>
+              <div class="indicationLine">
+              </div>
             </div>
-        </section>
-
-
-        <section id="french" class="slider__page" data-slider-index="3">
-            <div class="flexContainer">
-                <div style="margin:20px 30px">
-                    <img src="assets/images/pages/zerox-logo.png" width="60" height="60">
-                </div>
-                <ul class="topnav flexItem_main" style="margin: 0 10%;text-align: center;">
-                    <li><a class="active" href="#home">Home</a></li>
-                    <li><a href="#service">Services</a></li>
-                    <li><a href="#culture">Culture</a></li>
-                    <li><a href="#team">Team</a></li>
-                    <li><a href="#events">Events</a></li>
-                </ul>
-                <a class="styleBtn" href="/">Be one of us</a>
+            <div class="spacing">
+              <div class="labels">看清前路</div>
+              <div class="indicationLine">
+              </div>
             </div>
-            <div class="verticalContainer">
+          </div>
+          <div class="middle_line">
 
-                <div class="arrow_up">
+          </div>
+          <div class="right-half verticalContainer full-height" style="justify-content: center;">
 
-                </div>
-                <div class="arrow_point">
-
-                </div>
-                <div class="textCenter">
-
-
-                    你真正需要的是：<br />
-                    锻造一条属于你自己的成功之路，解锁无限可能的未来
-                    专业经验的职场导师和人生导师，陪你一起做到。
-
-                </div>
-
-
-                <div class="light">
-                </div>
-
-
-                <div class="rocket_verticle">
-                </div>
-
-            </div>
-        </section>
-        <section id="spanish" class="slider__page" data-slider-index="4">
-            <!-- header -->
-            <div class="flexContainer">
-                <div style="margin:20px 30px">
-                    <img src="assets/images/pages/zerox-logo.png" width="60" height="60">
-                </div>
-                <ul class="topnav flexItem_main" style="margin: 0 10%;text-align: center;">
-                    <li><a class="active" href="#home">Home</a></li>
-                    <li><a href="#service">Services</a></li>
-                    <li><a href="#culture">Culture</a></li>
-                    <li><a href="#team">Team</a></li>
-                    <li><a href="#events">Events</a></li>
-                </ul>
-                <a class="styleBtn" href="/">Be one of us</a>
-            </div>
-
-
-
-            <div class="verticalContainer">
-            
-
-                <div class="arrow_up">
-
-                </div>
-
-                <div class="rocket_verticle">
-                </div>
-
-                <div class="textCenter_grey" style="font-size:14px;margin-bottom: 10px">WE</div>
-                <img src="assets/images/pages/zerox-logo.png" width="50" height="50">
-                <div class="textCenterFutura" style="font-size:14px;">
-
-                    FORGE A PATH TO UNLOCK<br />
-
-                    YOUR LIMITLESS FUTURE.
-
-                </div>
-                <div class="textCenter_grey" style="font-size:14px">
-                    锻造理想之路 冲破人生边界
-
-                </div>
-                <div class="arrow_end">
-
-                </div>
-
-            </div>
-        </section>
-        <section id="hindi" class="slider__page" data-slider-index="5">
-
-            <!-- header -->
-            <div class="flexContainer">
-                <div style="margin:20px 30px">
-                    <img src="assets/images/pages/zerox-logo.png" width="60" height="60">
-                </div>
-                <ul class="topnav flexItem_main" style="margin: 0 10%;text-align: center;">
-                    <li><a class="active" href="#home">Home</a></li>
-                    <li><a href="#service">Services</a></li>
-                    <li><a href="#culture">Culture</a></li>
-                    <li><a href="#team">Team</a></li>
-                    <li><a href="#events">Events</a></li>
-                </ul>
-                <a class="styleBtn" href="/">Be one of us</a>
-            </div>
-
-            <div class="verticalContainer full-width">
-                <div style="height: 150px; width: 1px;">
-                </div>
-                <div class="textCenter_grey" style="height: 200px">
-                    锻造理想之路
-
-                </div>
-                <div class="horizontalContainerCenter" style="height: 70%">
-                    <div class="left-half verticalContainer" style="height: 80%;">
-                        <div class="spacing">
-                            <div class="labels">赋能迈进</div>
-                            <div class="indicationLine">
-                            </div>
-                        </div>
-                        <div class="spacing">
-                            <div class="labels">设立关卡</div>
-                            <div class="indicationLine">
-                            </div>
-                        </div>
-                        <div class="spacing">
-                            <div class="labels">找准方向</div>
-                            <div class="indicationLine">
-                            </div>
-                        </div>
-                        <div class="spacing">
-                            <div class="labels">看清前路</div>
-                            <div class="indicationLine">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="middle_line">
-
-                    </div>
-                    <div class="right-half verticalContainer full-height" style="justify-content: center;">
-                        
-                    <!-- <iframe class="video-doodly" 
+            <!-- <iframe class="video-doodly" 
                     src="https://www.youtube.com/embed/KjICBHj1EzM" 
                     frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
                     allowfullscreen>
                     </iframe> -->
-                    <iframe class="video-doodly" 
-                    src="https://www.youtube.com/embed/TnIKgkLWBBk" frameborder="0" 
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen></iframe>
+            <iframe class="video-doodly" src="https://www.youtube.com/embed/TnIKgkLWBBk" frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-                    </div>
+          </div>
 
-                </div>
+        </div>
 
 
-                <div class="rocket_verticle">
-                </div>
+        <div class="rocket_verticle">
+        </div>
 
 
-            </div>
+      </div>
 
 
-        </section>
-        <section id="mandarin" class="slider__page" data-slider-index="6">
+    </section>
+    <section id="mandarin" class="slider__page" data-slider-index="6">
 
 
-            <!-- header -->
-            <div class="flexContainer">
-                <div style="margin:20px 30px">
-                    <img src="assets/images/pages/zerox-logo.png" width="60" height="60">
-                </div>
-                <ul class="topnav flexItem_main" style="margin: 0 10%;text-align: center;">
-                    <li><a class="active" href="#home">Home</a></li>
-                    <li><a href="#service">Services</a></li>
-                    <li><a href="#culture">Culture</a></li>
-                    <li><a href="#team">Team</a></li>
-                    <li><a href="#events">Events</a></li>
-                </ul>
-                <a class="styleBtn" href="/">Be one of us</a>
-            </div>
+      <!-- header -->
+      <div class="flexContainer">
+        <div style="margin:20px 30px">
+          <img src="assets/images/pages/zerox-logo.png" width="60" height="60">
+        </div>
+        <ul class="topnav flexItem_main" style="margin: 0 10%;text-align: center;">
+          <li><a class="active" href="#home">Home</a></li>
+          <li><a href="#service">Services</a></li>
+          <li><a href="#culture">Culture</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#events">Events</a></li>
+        </ul>
+        <a class="styleBtn" href="/">Be one of us</a>
+      </div>
 
 
 
-            <div class="horizontalContainerCenter full-width">
-                <div style="height: 150px; width: 1px;"></div>
-                <div class="left-half">
-                    <div class="community_left">
-                    </div>
+      <div class="horizontalContainerCenter full-width">
+        <div style="height: 150px; width: 1px;"></div>
+        <div class="left-half">
+          <div class="community_left">
+          </div>
 
-                </div>
+        </div>
 
-                <div class="middle-part verticalContainer" style="margin-left:-80px; margin-right:-80px">
-                    <div class="community_dotline"></div>
-                    <div class="spacing-20"></div>
-                    <div class="textCenter_grey" style="color:#fff">
-                        这是一个共同成长的社区
+        <div class="middle-part verticalContainer" style="margin-left:-80px; margin-right:-80px">
+          <div class="community_dotline"></div>
+          <div class="spacing-20"></div>
+          <div class="textCenter_grey" style="color:#fff">
+            这是一个共同成长的社区
 
-                    </div>
-                    <div class="spacing-20"></div>
-                    <div class="rocket_verticle">
-                    </div>
-                    <div class="verticalYellowLine spacing">
+          </div>
+          <div class="spacing-20"></div>
+          <div class="rocket_verticle">
+          </div>
+          <div class="verticalYellowLine spacing">
 
-                    </div>
+          </div>
 
-                </div>
+        </div>
 
-                <div class="right-half">
+        <div class="right-half">
 
-                    <div class="community_right">
+          <div class="community_right">
 
-                        <div style="font-size:11px;padding-top: 48%; text-align: center; color: #fff">
-                            平时一个人难以获取的资源、经验和机会，<br />
+            <div style="font-size:11px;padding-top: 48%; text-align: center; color: #fff">
+              平时一个人难以获取的资源、经验和机会，<br />
 
-                            整个社区一起，<br />
+              整个社区一起，<br />
 
-                            精粹秘籍，供你修炼。<br />
+              精粹秘籍，供你修炼。<br />
 
-                            专业大师，人生教练，和修行者，<br />
+              专业大师，人生教练，和修行者，<br />
 
-                            我们协力同行，在一个个的任务里，<br />
+              我们协力同行，在一个个的任务里，<br />
 
-                            规划路线，实践技能，过关升级，锻造经验和能力，<br />
+              规划路线，实践技能，过关升级，锻造经验和能力，<br />
 
-                            一路乘风破浪，直达精英目标。<br />
+              一路乘风破浪，直达精英目标。<br />
 
-                            <!-- <div class="textCenter_grey" style="font-size:12px;margin-top:60px">ZEROX</div> -->
-
-                        </div>
-
-
-                    </div>
-
-                </div>
+              <!-- <div class="textCenter_grey" style="font-size:12px;margin-top:60px">ZEROX</div> -->
 
             </div>
 
-        </section>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
 
 
-        <section id="earthPrograms" class="slider__page" data-slider-index="7">
+    <section id="earthPrograms" class="slider__page" data-slider-index="7">
 
 
-            <!-- header -->
-            <div class="flexContainer">
-                <div style="margin:20px 30px">
-                    <img src="assets/images/pages/zerox-logo.png" width="60" height="60">
+      <!-- header -->
+      <div class="flexContainer">
+        <div style="margin:20px 30px">
+          <img src="assets/images/pages/zerox-logo.png" width="60" height="60">
+        </div>
+        <ul class="topnav flexItem_main" style="margin: 0 10%;text-align: center;">
+          <li><a class="active" href="#home">Home</a></li>
+          <li><a href="#service">Services</a></li>
+          <li><a href="#culture">Culture</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#events">Events</a></li>
+        </ul>
+        <a class="styleBtn" href="/">Be one of us</a>
+      </div>
+
+
+
+      <div class="verticalContainer full-width">
+        <!-- <div style="height: 150px; width: 1px;"></div> -->
+
+
+        <div class="horizontalContainerCenter full-width" style="height: calc(100vh - 144px);">
+
+          <div class="left-half full-height">
+            <div class="horizontalContainerCenter full-height" id="left-text-part" style="justify-content: flex-start;">
+              <div class="sub-icon-half">
+                <div class="topic-icon" id="icon_03">
                 </div>
-                <ul class="topnav flexItem_main" style="margin: 0 10%;text-align: center;">
-                    <li><a class="active" href="#home">Home</a></li>
-                    <li><a href="#service">Services</a></li>
-                    <li><a href="#culture">Culture</a></li>
-                    <li><a href="#team">Team</a></li>
-                    <li><a href="#events">Events</a></li>
-                </ul>
-                <a class="styleBtn" href="/">Be one of us</a>
+
+                <div class="topic-icon" id="icon_04">
+                </div>
+
+              </div>
+              <div class="verticalContainer sub-text-half">
+                <p class="topic fontFamilyEnglish">
+                  What does it mean?
+                </p>
+                <p class="topic-description fontFamilyChinese" id="topic-description-left">
+
+                </p>
+                <a href="#" class="learnMore"> learn more </a>
+              </div>
+
             </div>
+            <div class="earth explore_earth" id="services-bg-1-show">
 
-
-
-            <div class="verticalContainer full-width">
-                <!-- <div style="height: 150px; width: 1px;"></div> -->
-
-
-                <div class="horizontalContainerCenter full-width" style="height: calc(100vh - 144px);">
-
-                    <div class="left-half full-height">
-                        <div class="horizontalContainerCenter full-height" id="left-text-part"
-                            style="justify-content: flex-start;">
-                            <div class="sub-icon-half">
-                                <div class="topic-icon" id="icon_03">
-                                </div>
-
-                                <div class="topic-icon" id="icon_04">
-                                </div>
-
-                            </div>
-                            <div class="verticalContainer sub-text-half">
-                                <p class="topic fontFamilyEnglish">
-                                    What does it mean?
-                                </p>
-                                <p class="topic-description fontFamilyChinese" id="topic-description-left">
-
-                                </p>
-                                <a href="#" class="learnMore"> learn more </a>
-                            </div>
-
-                        </div>
-                        <div class="earth explore_earth" id="services-bg-1-show">
-
-                        </div>
-                        <div class="earth lifeCoach_earth" id="services-bg-2-show">
-
-                        </div>
-
-
-
-                    </div>
-
-                    <div class="middle-part verticalContainer" style="margin-left:10px; margin-right:10px">
-
-
-                    </div>
-
-
-                    <div class="right-half full-height">
-                        <div class="horizontalContainerCenter full-height" id="right-text-part"
-                            style="justify-content: flex-end;">
-                            <div class="verticalContainer sub-text-half">
-                                <p class="topic fontFamilyEnglish">
-                                    What does it mean?
-                                </p>
-                                <p class="topic-description fontFamilyChinese" id="topic-description-right">
-
-                                </p>
-
-                                <a href="#" class="learnMore"> learn more </a>
-                            </div>
-                            <div class="sub-icon-half">
-
-                                <div class="topic-icon" id="icon_01">
-                                </div>
-
-                                <div class="topic-icon" id="icon_02">
-                                </div>
-
-
-                            </div>
-
-                        </div>
-
-                        <div class="earth career_earth" id="services-bg-3-show">
-
-                        </div>
-                        <div class="earth intern_earth" id="services-bg-4-show">
-
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="horizontalContainerCenter full-width four-services">
-                    <div class="services-bg" id="services-bg-1" onClick="handleOnClick()">
-                        <p class="service-topic fontFamilyChinese">自我探索之路</p>
-                    </div>
-                    <div class="services-bg" id="services-bg-2">
-                        <p class="service-topic fontFamilyChinese">人生发展教练</p>
-                    </div>
-                    <div class="rocket_verticle">
-                    </div>
-                    <div class="services-bg" id="services-bg-3">
-                        <p class="service-topic fontFamilyChinese">IT职业起始</p>
-                    </div>
-                    <div class="services-bg" id="services-bg-4">
-                        <p class="service-topic fontFamilyChinese">实习成长项目</p>
-                    </div>
-
-                </div>
+            </div>
+            <div class="earth lifeCoach_earth" id="services-bg-2-show">
 
             </div>
 
 
 
-        </section>
+          </div>
+
+          <div class="middle-part verticalContainer" style="margin-left:10px; margin-right:10px">
 
 
+          </div>
 
-        <section id="testimo" class="slider__page full-width" data-slider-index="8">
 
+          <div class="right-half full-height">
+            <div class="horizontalContainerCenter full-height" id="right-text-part" style="justify-content: flex-end;">
+              <div class="verticalContainer sub-text-half">
+                <p class="topic fontFamilyEnglish">
+                  What does it mean?
+                </p>
+                <p class="topic-description fontFamilyChinese" id="topic-description-right">
 
-            <!-- header -->
-            <div class="flexContainer">
-                <div style="margin:20px 30px">
-                    <img src="assets/images/pages/zerox-logo.png" width="60" height="60">
+                </p>
+
+                <a href="#" class="learnMore"> learn more </a>
+              </div>
+              <div class="sub-icon-half">
+
+                <div class="topic-icon" id="icon_01">
                 </div>
-                <ul class="topnav flexItem_main" style="margin: 0 10%;text-align: center;">
-                    <li><a class="active" href="#home">Home</a></li>
-                    <li><a href="#service">Services</a></li>
-                    <li><a href="#culture">Culture</a></li>
-                    <li><a href="#team">Team</a></li>
-                    <li><a href="#events">Events</a></li>
-                </ul>
-                <a class="styleBtn" href="/">Be one of us</a>
+
+                <div class="topic-icon" id="icon_02">
+                </div>
+
+
+              </div>
+
             </div>
 
+            <div class="earth career_earth" id="services-bg-3-show">
+
+            </div>
+            <div class="earth intern_earth" id="services-bg-4-show">
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="horizontalContainerCenter full-width four-services">
+          <div class="services-bg" id="services-bg-1" onClick="handleOnClick()">
+            <p class="service-topic fontFamilyChinese">自我探索之路</p>
+          </div>
+          <div class="services-bg" id="services-bg-2">
+            <p class="service-topic fontFamilyChinese">人生发展教练</p>
+          </div>
+          <div class="rocket_verticle">
+          </div>
+          <div class="services-bg" id="services-bg-3">
+            <p class="service-topic fontFamilyChinese">IT职业起始</p>
+          </div>
+          <div class="services-bg" id="services-bg-4">
+            <p class="service-topic fontFamilyChinese">实习成长项目</p>
+          </div>
+
+        </div>
+
+      </div>
 
 
-            <div class="full-width" style="text-align: center;">
-                <!-- <div style="height: 150px; width: 1px;"></div> -->
-                
-                    <div class="background_characters">
-                        <div class="left_characters"></div>
-                    <iframe class="video-interview" 
-                    src="https://www.youtube.com/embed/5MG6T7a_nQ4" 
-                    frameborder="0" allow="accelerometer; autoplay; encrypted-media; 
+
+    </section>
+
+
+
+    <section id="testimo" class="slider__page full-width" data-slider-index="8">
+
+
+      <!-- header -->
+      <div class="flexContainer">
+        <div style="margin:20px 30px">
+          <img src="assets/images/pages/zerox-logo.png" width="60" height="60">
+        </div>
+        <ul class="topnav flexItem_main" style="margin: 0 10%;text-align: center;">
+          <li><a class="active" href="#home">Home</a></li>
+          <li><a href="#service">Services</a></li>
+          <li><a href="#culture">Culture</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#events">Events</a></li>
+        </ul>
+        <a class="styleBtn" href="/">Be one of us</a>
+      </div>
+
+
+
+      <div class="full-width" style="text-align: center;">
+        <!-- <div style="height: 150px; width: 1px;"></div> -->
+
+        <div class="background_characters">
+          <div class="left_characters"></div>
+          <iframe class="video-interview" src="https://www.youtube.com/embed/5MG6T7a_nQ4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; 
                     gyroscope; picture-in-picture" allowfullscreen>
-                    </iframe>
-                    <div class="heroImage"></div>
-                    </div>
+          </iframe>
+          <div class="heroImage"></div>
+        </div>
+      </div>
+
+    </section>
+
+
+
+    <section id="ending" class="slider__page" data-slider-index="9">
+
+
+
+      <div class="full-width screen_height" style="text-align: center;">
+        <div class="bg_ending">
+          <!-- header -->
+          <div class="flexContainer">
+            <div style="margin:20px 30px">
+              <img src="assets/images/pages/zerox-logo.png" width="60" height="60">
+            </div>
+            <ul class="topnav flexItem_main" style="margin: 0 10%;text-align: center;">
+              <li><a class="active" href="#home">Home</a></li>
+              <li><a href="#service">Services</a></li>
+              <li><a href="#culture">Culture</a></li>
+              <li><a href="#team">Team</a></li>
+              <li><a href="#events">Events</a></li>
+            </ul>
+            <a class="styleBtn" href="/">Be one of us</a>
+          </div>
+
+
+          <div class="verticalContainer" style="justify-content: flex-start;">
+            <div class="rocket_verticle_logo">
             </div>
 
-        </section>
+            <div class="spacing-20"></div>
+
+            <div class="verticalYellowLine spacing">
+
+            </div>
+            <div class="spacing-20"></div>
+            <div class="spacing-20"></div>
 
 
 
-        <section id="ending" class="slider__page" data-slider-index="9">
-
-
-
-            <div class="full-width screen_height" style="text-align: center;">
-                <div class="bg_ending">
-                    <!-- header -->
-                    <div class="flexContainer">
-                        <div style="margin:20px 30px">
-                            <img src="assets/images/pages/zerox-logo.png" width="60" height="60">
-                        </div>
-                        <ul class="topnav flexItem_main" style="margin: 0 10%;text-align: center;">
-                            <li><a class="active" href="#home">Home</a></li>
-                            <li><a href="#service">Services</a></li>
-                            <li><a href="#culture">Culture</a></li>
-                            <li><a href="#team">Team</a></li>
-                            <li><a href="#events">Events</a></li>
-                        </ul>
-                        <a class="styleBtn" href="/">Be one of us</a>
-                    </div>
-
-
-                    <div class="verticalContainer" style="justify-content: flex-start;">
-                        <div class="rocket_verticle_logo">
-                        </div>
-
-                        <div class="spacing-20"></div>
-
-                        <div class="verticalYellowLine spacing">
-
-                        </div>
-                        <div class="spacing-20"></div>
-                        <div class="spacing-20"></div>
-                        
-
-
-                        <div class="textCenter_grey" style="color:#fff; margin-top: 20px">
-                            我们相信，<br />
-                            茫茫人海中，有这么一群人很特别。<br />
-                            他们对自己要求很高，觉得自己值得更高的格局。<br />
-                            <br />
-                            我们也是。<br />
-                            <br />
-                            但单凭一己之力难免事倍功半。<br />
-                            所以，我们邀请你与社区伙伴一起，<br />
-                            从零开始，锻造超我之路，直通无限未来。
-
-                        </div>
-
-
-                    </div>
-
-
-
-                </div>
-                <!-- <div style="height: 150px; width: 1px;"></div> -->
-
+            <div class="textCenter_grey" style="color:#fff; margin-top: 20px">
+              我们相信，<br />
+              茫茫人海中，有这么一群人很特别。<br />
+              他们对自己要求很高，觉得自己值得更高的格局。<br />
+              <br />
+              我们也是。<br />
+              <br />
+              但单凭一己之力难免事倍功半。<br />
+              所以，我们邀请你与社区伙伴一起，<br />
+              从零开始，锻造超我之路，直通无限未来。
 
             </div>
 
-        </section>
 
-        </section>
+          </div>
 
-        <script>
-            slider('.slides');
-        </script>
-        <!-- <div class="slider__indicators" style="display:none">
+
+
+        </div>
+        <!-- <div style="height: 150px; width: 1px;"></div> -->
+
+
+      </div>
+
+    </section>
+
+
+
+    <script>
+      slider('.slides');
+    </script>
+    <!-- <div class="slider__indicators" style="display:none">
             <a class="slider__indicator slider__indicator--active" data-slider-target-index="1"> </a>
             <a class="slider__indicator" data-slider-target-index="2"></a>
             <a class="slider__indicator" data-slider-target-index="3"></a>
@@ -1297,794 +566,12 @@
             <a class="slider__indicator" data-slider-target-index="8"></a>
         </div> -->
 
-        <script>
-            (function (i, s, o, g, r, a, m) {
-                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-                    (i[r].q = i[r].q || []).push(arguments)
-                }, i[r].l = 1 * new Date(); a = s.createElement(o),
-                    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-            })(window, document, 'script', 'http://www.google-analytics.com/analytics.js', 'ga');
 
-            ga('create', 'UA-46156385-1', 'cssscript.com');
-            ga('send', 'pageview');
 
 
-            let topics1 = document.getElementById("services-bg-1");
-            topics1.addEventListener("mouseover", function (event) {
-                // highlight the mouseover target
-                document.getElementById("services-bg-1-show").style.display = "block";
-                document.getElementById("icon_01").style.display = "block";
-                document.getElementById("right-text-part").style.display = "flex";
-                document.getElementById("topic-description-right").innerText = "职场新人，教练陪你对话自我，向内探索分析，找到你人生发展的正确起步方向。"
+    <script src="assets/js/components/carousels/waterwheel.js"></script>
+    <script src="assets/js/pages/culture.js"></script>
 
-            });
-            topics1.addEventListener("mouseout", function (event) {
-                // highlight the mouseover target
-                document.getElementById("services-bg-1-show").style.display = "none";
-                document.getElementById("right-text-part").style.display = "none";
-                document.getElementById("icon_01").style.display = "none";
-
-            });
-
-
-            let topics2 = document.getElementById("services-bg-2");
-            topics2.addEventListener("mouseover", function (event) {
-                // highlight the mouseover target
-                document.getElementById("services-bg-2-show").style.display = "block";
-                document.getElementById("icon_02").style.display = "block";
-                document.getElementById("right-text-part").style.display = "flex";
-                document.getElementById("topic-description-right").innerText = "十余年工作经验大咖，指导你看清前路状况，跳过职场的坑，绕开人生的弯路，在难关前给你撘把梯子，跃过障碍，轻身进发."
-
-                // document.getElementById("icon_02").style.display = "block";
-
-            });
-            topics2.addEventListener("mouseout", function (event) {
-                // highlight the mouseover target
-                document.getElementById("services-bg-2-show").style.display = "none";
-                document.getElementById("right-text-part").style.display = "none";
-                document.getElementById("icon_02").style.display = "none";
-            });
-
-            let topics3 = document.getElementById("services-bg-3");
-            topics3.addEventListener("mouseover", function (event) {
-                // highlight the mouseover target
-                document.getElementById("services-bg-3-show").style.display = "block";
-                document.getElementById("left-text-part").style.display = "flex";
-                document.getElementById("icon_03").style.display = "block";
-                document.getElementById("topic-description-left").innerText = "手把手找到重要的第一份工作，从技术，技能，技巧着手，稳步跃升，甩开竞争对手。别人不知道的商业项目，技术面试套路，我们带你实战训练."
-
-            });
-            topics3.addEventListener("mouseout", function (event) {
-                // highlight the mouseover target
-                document.getElementById("services-bg-3-show").style.display = "none";
-                document.getElementById("left-text-part").style.display = "none";
-                document.getElementById("icon_03").style.display = "none";
-            });
-
-
-            let topics4 = document.getElementById("services-bg-4");
-            topics4.addEventListener("mouseover", function (event) {
-                // highlight the mouseover target
-                document.getElementById("services-bg-4-show").style.display = "block";
-                document.getElementById("left-text-part").style.display = "flex";
-                document.getElementById("icon_04").style.display = "block";
-                document.getElementById("topic-description-left").innerText = "全真商业环境，在完成每个商业难题的过程里，获取经验值。教练陪你设计，指导，完成，复盘分析，助你快速提升职场战斗力。"
-
-            });
-            topics4.addEventListener("mouseout", function (event) {
-                // highlight the mouseover target
-                document.getElementById("services-bg-4-show").style.display = "none";
-                document.getElementById("left-text-part").style.display = "none";
-                document.getElementById("icon_04").style.display = "none";
-            });
-
-
-            // ---------------carousel ------------------
-
-
-</script>
-<script>
-          /*!
- * Waterwheel Carousel
- * Version 2.3.0
- * https://www.bkosborne.com
- *
- * Copyright 2011-2013 Brian Osborne
- * Dual licensed under GPLv3 or MIT
- * Copies of the licenses have been distributed
- * with this plugin.
- *
- * Plugin written by Brian Osborne
- * for use with the jQuery JavaScript Framework
- * https://www.jquery.com
- */
-;(function ($) {
-  'use strict';
-
-  $.fn.waterwheelCarousel = function (startingOptions) {
-
-    // Adds support for intializing multiple carousels from the same selector group
-    if (this.length > 1) {
-      this.each(function() {
-        $(this).waterwheelCarousel(startingOptions);
-      });
-      return this; // allow chaining
-    }
-
-    var carousel = this;
-    var options = {};
-    var data = {};
-
-    function initializeCarouselData() {
-      data = {
-        itemsContainer:         $(carousel),
-        totalItems:             $(carousel).find('img').length,
-        containerWidth:         $(carousel).width(),
-        containerHeight:        $(carousel).height(),
-        currentCenterItem:      null,
-        previousCenterItem:     null,
-        items:                  [],
-        calculations:           [],
-        carouselRotationsLeft:  0,
-        currentlyMoving:        false,
-        itemsAnimating:         0,
-        currentSpeed:           options.speed,
-        intervalTimer:          null,
-        currentDirection:       'forward',
-        leftItemsCount:         0,
-        rightItemsCount:        0,
-        performingSetup:        true
-      };
-      data.itemsContainer.find('img').removeClass(options.activeClassName);
-    }
-
-    /**
-     * This function will set the autoplay for the carousel to
-     * automatically rotate it given the time in the options
-     * Can clear the autoplay by passing in true
-     */
-    function autoPlay(stop) {
-      // clear timer
-      clearTimeout(data.autoPlayTimer);
-      // as long as no stop command, and autoplay isn't zeroed...
-      if (!stop && options.autoPlay !== 0) {
-        // set timer...
-        data.autoPlayTimer = setTimeout(function () {
-          // to move the carousl in either direction...
-          if (options.autoPlay > 0) {
-            moveOnce('forward');
-          } else {
-            moveOnce('backward');
-          }
-        }, Math.abs(options.autoPlay));
-      }
-    }
-
-    /**
-     * This function will preload all the images in the carousel before
-     * calling the passed in callback function. This is only used so we can
-     * properly determine the width and height of the items. This is not needed
-     * if a user instead manually specifies that information.
-     */
-    function preload(callback) {
-      if (options.preloadImages === false) {
-        callback();
-        return;
-      }
-
-      var $imageElements = data.itemsContainer.find('img'), loadedImages = 0, totalImages = $imageElements.length;
-
-      $imageElements.each(function () {
-        $(this).bind('load', function () {
-          // Add to number of images loaded and see if they are all done yet
-          loadedImages += 1;
-          if (loadedImages === totalImages) {
-            // All done, perform callback
-            callback();
-            return;
-          }
-        });
-        // May need to manually reset the src to get the load event to fire
-        // http://stackoverflow.com/questions/7137737/ie9-problems-with-jquery-load-event-not-firing
-        $(this).attr('src', $(this).attr('src'));
-
-        // If browser has cached the images, it may not call trigger a load. Detect this and do it ourselves
-        if (this.complete) {
-          $(this).trigger('load');
-        }
-      });
-    }
-
-    /**
-     * Makes a record of the original width and height of all the items in the carousel.
-     * If we re-intialize the carousel, these values can be used to re-establish their
-     * original dimensions.
-     */
-    function setOriginalItemDimensions() {
-      data.itemsContainer.find('img').each(function () {
-        if ($(this).data('original_width') == undefined || options.forcedImageWidth > 0) {
-          $(this).data('original_width', $(this).width());
-        }
-        if ($(this).data('original_height') == undefined || options.forcedImageHeight > 0) {
-          $(this).data('original_height', $(this).height());
-        }
-      });
-    }
-
-    /**
-     * Users can pass in a specific width and height that should be applied to every image.
-     * While this option can be used in conjunction with the image preloader, the intended
-     * use case is for when the preloader is turned off and the images don't have defined
-     * dimensions in CSS. The carousel needs dimensions one way or another to work properly.
-     */
-    function forceImageDimensionsIfEnabled() {
-      if (options.forcedImageWidth && options.forcedImageHeight) {
-        data.itemsContainer.find('img').each(function () {
-          $(this).width(options.forcedImageWidth);
-          $(this).height(options.forcedImageHeight);
-        });
-      }
-    }
-
-    /**
-     * For each "visible" item slot (# of flanking items plus the middle),
-     * we pre-calculate all of the properties that the item should possess while
-     * occupying that slot. This saves us some time during the actual animation.
-     */
-    function preCalculatePositionProperties() {
-      // The 0 index is the center item in the carousel
-      var $firstItem = data.itemsContainer.find('img:first');
-
-      data.calculations[0] = {
-        distance: 0,
-        offset:   0,
-        opacity:  1
-      }
-
-      // Then, for each number of flanking items (plus one more, see below), we
-      // perform the calcations based on our user options
-      var horizonOffset = options.horizonOffset;
-      var separation = options.separation;
-      for (var i = 1; i <= options.flankingItems + 2; i++) {
-        if (i > 1) {
-          horizonOffset *= options.horizonOffsetMultiplier;
-          separation *= options.separationMultiplier;
-        }
-        data.calculations[i] = {
-          distance: data.calculations[i-1].distance + separation,
-          offset:   data.calculations[i-1].offset + horizonOffset,
-          opacity:  data.calculations[i-1].opacity * options.opacityMultiplier
-        }
-      }
-      // We performed 1 extra set of calculations above so that the items that
-      // are moving out of sight (based on # of flanking items) gracefully animate there
-      // However, we need them to animate to hidden, so we set the opacity to 0 for
-      // that last item
-      if (options.edgeFadeEnabled) {
-        data.calculations[options.flankingItems+1].opacity = 0;
-      } else {
-        data.calculations[options.flankingItems+1] = {
-          distance: 0,
-          offset: 0,
-          opacity: 0
-        }
-      }
-    }
-
-    /**
-     * Here we prep the carousel and its items, like setting default CSS
-     * attributes. All items start in the middle position by default
-     * and will "fan out" from there during the first animation
-     */
-    function setupCarousel() {
-      // Fill in a data array with jQuery objects of all the images
-      data.items = data.itemsContainer.find('img');
-      for (var i = 0; i < data.totalItems; i++) {
-        data.items[i] = $(data.items[i]);
-      }
-
-      // May need to set the horizon if it was set to auto
-      if (options.horizon === 0) {
-        if (options.orientation === 'horizontal') {
-          options.horizon = data.containerHeight / 2;
-        } else {
-          options.horizon = data.containerWidth / 2;
-        }
-      }
-
-      // Default all the items to the center position
-      data.itemsContainer
-        .css('position','relative')
-        .find('img')
-          .each(function () {
-            // Figure out where the top and left positions for center should be
-            var centerPosLeft, centerPosTop;
-            if (options.orientation === 'horizontal') {
-              centerPosLeft = (data.containerWidth / 2) - ($(this).data('original_width') / 2);
-              centerPosTop = options.horizon - ($(this).data('original_height') / 2);
-            } else {
-              centerPosLeft = options.horizon - ($(this).data('original_width') / 2);
-              centerPosTop = (data.containerHeight / 2) - ($(this).data('original_height') / 2);
-            }
-            $(this)
-              // Apply positioning and layering to the images
-              .css({
-                'left': centerPosLeft,
-                'top': centerPosTop,
-                'visibility': 'visible',
-                'position': 'absolute',
-                'z-index': 0,
-                'opacity': 0
-              })
-              // Give each image a data object so it remembers specific data about
-              // it's original form
-              .data({
-                top:             centerPosTop,
-                left:            centerPosLeft,
-                oldPosition:     0,
-                currentPosition: 0,
-                depth:           0,
-                opacity:         0
-              })
-              // The image has been setup... Now we can show it
-              .show();
-          });
-    }
-
-    /**
-     * All the items to the left and right of the center item need to be
-     * animated to their starting positions. This function will
-     * figure out what items go where and will animate them there
-     */
-    function setupStarterRotation() {
-      options.startingItem = (options.startingItem === 0) ? Math.round(data.totalItems / 2) : options.startingItem;
-
-      data.rightItemsCount = Math.ceil((data.totalItems-1) / 2);
-      data.leftItemsCount = Math.floor((data.totalItems-1) / 2);
-
-      // We are in effect rotating the carousel, so we need to set that
-      data.carouselRotationsLeft = 1;
-
-      // Center item
-      moveItem(data.items[options.startingItem-1], 0);
-      data.items[options.startingItem-1].css('opacity', 1);
-
-      // All the items to the right of center
-      var itemIndex = options.startingItem - 1;
-      for (var pos = 1; pos <= data.rightItemsCount; pos++) {
-        (itemIndex < data.totalItems - 1) ? itemIndex += 1 : itemIndex = 0;
-
-        data.items[itemIndex].css('opacity', 1);
-        moveItem(data.items[itemIndex], pos);
-      }
-
-      // All items to left of center
-      var itemIndex = options.startingItem - 1;
-      for (var pos = -1; pos >= data.leftItemsCount*-1; pos--) {
-        (itemIndex > 0) ? itemIndex -= 1 : itemIndex = data.totalItems - 1;
-
-        data.items[itemIndex].css('opacity', 1);
-        moveItem(data.items[itemIndex], pos);
-      }
-    }
-
-    /**
-     * Given the item and position, this function will calculate the new data
-     * for the item. One the calculations are done, it will store that data in
-     * the items data object
-     */
-    function performCalculations($item, newPosition) {
-      var newDistanceFromCenter = Math.abs(newPosition);
-
-      // Distance to the center
-      if (newDistanceFromCenter < options.flankingItems + 1) {
-        var calculations = data.calculations[newDistanceFromCenter];
-      } else {
-        var calculations = data.calculations[options.flankingItems + 1];
-      }
-
-      var distanceFactor = Math.pow(options.sizeMultiplier, newDistanceFromCenter)
-      var newWidth = distanceFactor * $item.data('original_width');
-      var newHeight = distanceFactor * $item.data('original_height');
-      var widthDifference = Math.abs($item.width() - newWidth);
-      var heightDifference = Math.abs($item.height() - newHeight);
-
-      var newOffset = calculations.offset
-      var newDistance = calculations.distance;
-      if (newPosition < 0) {
-        newDistance *= -1;
-      }
-
-      if (options.orientation == 'horizontal') {
-        var center = data.containerWidth / 2;
-        var newLeft = center + newDistance - (newWidth / 2);
-        var newTop = options.horizon - newOffset - (newHeight / 2);
-      } else {
-        var center = data.containerHeight / 2;
-        var newLeft = options.horizon - newOffset - (newWidth / 2);
-        var newTop = center + newDistance - (newHeight / 2);
-      }
-
-      var newOpacity;
-      if (newPosition === 0) {
-        newOpacity = 1;
-      } else {
-        newOpacity = calculations.opacity;
-      }
-
-      // Depth will be reverse distance from center
-      var newDepth = options.flankingItems + 2 - newDistanceFromCenter;
-
-      $item.data('width',newWidth);
-      $item.data('height',newHeight);
-      $item.data('top',newTop);
-      $item.data('left',newLeft);
-      $item.data('oldPosition',$item.data('currentPosition'));
-      $item.data('depth',newDepth);
-      $item.data('opacity',newOpacity);
-    }
-
-    function moveItem($item, newPosition) {
-      // Only want to physically move the item if it is within the boundaries
-      // or in the first position just outside either boundary
-      if (Math.abs(newPosition) <= options.flankingItems + 1) {
-        performCalculations($item, newPosition);
-
-        data.itemsAnimating++;
-
-        $item
-          .css('z-index',$item.data().depth)
-          // Animate the items to their new position values
-          .animate({
-            left:    $item.data().left,
-            width:   $item.data().width,
-            height:  $item.data().height,
-            top:     $item.data().top,
-            opacity: $item.data().opacity
-          }, data.currentSpeed, options.animationEasing, function () {
-            // Animation for the item has completed, call method
-            itemAnimationComplete($item, newPosition);
-          });
-
-      } else {
-        $item.data('currentPosition', newPosition)
-        // Move the item to the 'hidden' position if hasn't been moved yet
-        // This is for the intitial setup
-        if ($item.data('oldPosition') === 0) {
-          $item.css({
-            'left':    $item.data().left,
-            'width':   $item.data().width,
-            'height':  $item.data().height,
-            'top':     $item.data().top,
-            'opacity': $item.data().opacity,
-            'z-index': $item.data().depth
-          });
-        }
-      }
-
-    }
-
-    /**
-     * This function is called once an item has finished animating to its
-     * given position. Several different statements are executed here, such as
-     * dealing with the animation queue
-     */
-    function itemAnimationComplete($item, newPosition) {
-      data.itemsAnimating--;
-
-      $item.data('currentPosition', newPosition);
-
-      // Keep track of what items came and left the center position,
-      // so we can fire callbacks when all the rotations are completed
-      if (newPosition === 0) {
-        data.currentCenterItem = $item;
-      }
-
-      // all items have finished their rotation, lets clean up
-      if (data.itemsAnimating === 0) {
-        data.carouselRotationsLeft -= 1;
-        data.currentlyMoving = false;
-
-        // If there are still rotations left in the queue, rotate the carousel again
-        // we pass in zero because we don't want to add any additional rotations
-        if (data.carouselRotationsLeft > 0) {
-          rotateCarousel(0);
-        // Otherwise there are no more rotations and...
-        } else {
-          // Reset the speed of the carousel to original
-          data.currentSpeed = options.speed;
-
-          data.currentCenterItem.addClass(options.activeClassName);
-
-          if (data.performingSetup === false) {
-            options.movedToCenter(data.currentCenterItem);
-            options.movedFromCenter(data.previousCenterItem);
-          }
-
-          data.performingSetup = false;
-          // reset & initate the autoPlay
-          autoPlay();
-        }
-      }
-    }
-
-    /**
-     * Function called to rotate the carousel the given number of rotations
-     * in the given direciton. Will check to make sure the carousel should
-     * be able to move, and then adjust speed and move items
-     */
-    function rotateCarousel(rotations) {
-      // Check to see that a rotation is allowed
-      if (data.currentlyMoving === false) {
-
-        // Remove active class from the center item while we rotate
-        data.currentCenterItem.removeClass(options.activeClassName);
-
-        data.currentlyMoving = true;
-        data.itemsAnimating = 0;
-        data.carouselRotationsLeft += rotations;
-        
-        if (options.quickerForFurther === true) {
-          // Figure out how fast the carousel should rotate
-          if (rotations > 1) {
-            data.currentSpeed = options.speed / rotations;
-          }
-          // Assure the speed is above the minimum to avoid weird results
-          data.currentSpeed = (data.currentSpeed < 100) ? 100 : data.currentSpeed;
-        }
-
-        // Iterate thru each item and move it
-        for (var i = 0; i < data.totalItems; i++) {
-          var $item = $(data.items[i]);
-          var currentPosition = $item.data('currentPosition');
-
-          var newPosition;
-          if (data.currentDirection == 'forward') {
-            newPosition = currentPosition - 1;
-          } else {
-            newPosition = currentPosition + 1;
-          }
-          // We keep both sides as even as possible to allow circular rotation to work.
-          // We will "wrap" the item arround to the other side by negating its current position
-          var flankingAllowance = (newPosition > 0) ? data.rightItemsCount : data.leftItemsCount;
-          if (Math.abs(newPosition) > flankingAllowance) {
-            newPosition = currentPosition * -1;
-            // If there's an uneven number of "flanking" items, we need to compenstate for that
-            // when we have an item switch sides. The right side will always have 1 more in that case
-            if (data.totalItems % 2 == 0) {
-              newPosition += 1;
-            } 
-          }
-
-          moveItem($item, newPosition);
-        }
-      }
-    }
-
-    /**
-     * The event handler when an image within the carousel is clicked
-     * This function will rotate the carousel the correct number of rotations
-     * to get the clicked item to the center, or will fire the custom event
-     * the user passed in if the center item is clicked
-     */
-    $(this).find('img').bind("click", function () {
-      var itemPosition = $(this).data().currentPosition;
-
-      if (options.imageNav == false) {
-        return;
-      }
-      // Don't allow hidden items to be clicked
-      if (Math.abs(itemPosition) >= options.flankingItems + 1) {
-        return;
-      }
-      // Do nothing if the carousel is already moving
-      if (data.currentlyMoving) {
-        return;
-      }
-
-      data.previousCenterItem = data.currentCenterItem;
-
-      // Remove autoplay
-      autoPlay(true);
-      options.autoPlay = 0;
-      
-      var rotations = Math.abs(itemPosition);
-      if (itemPosition == 0) {
-        options.clickedCenter($(this));
-      } else {
-        // Fire the 'moving' callbacks
-        options.movingFromCenter(data.currentCenterItem);
-        options.movingToCenter($(this));
-        if (itemPosition < 0) {
-          data.currentDirection = 'backward';
-          rotateCarousel(rotations);
-        } else if (itemPosition > 0) {
-          data.currentDirection = 'forward';
-          rotateCarousel(rotations);
-        }
-      }
-    });
-
-
-    /**
-     * The user may choose to wrap the images is link tags. If they do this, we need to
-     * make sure that they aren't active for certain situations
-     */
-    $(this).find('a').bind("click", function (event) {
-      var isCenter = $(this).find('img').data('currentPosition') == 0;
-      // should we disable the links?
-      if (options.linkHandling === 1 || // turn off all links
-          (options.linkHandling === 2 && !isCenter)) // turn off all links except center
-      {
-        event.preventDefault();
-        return false;
-      }
-    });
-
-    function nextItemFromCenter() {
-      var $next = data.currentCenterItem.next();
-      if ($next.length <= 0) {
-        $next = data.currentCenterItem.parent().children().first();
-      }
-      return $next;
-    }
-
-    function prevItemFromCenter() {
-      var $prev = data.currentCenterItem.prev();
-      if ($prev.length <= 0) {
-        $prev = data.currentCenterItem.parent().children().last();
-      }
-      return $prev;
-    }
-
-    /**
-     * Intiate a move of the carousel in either direction. Takes care of firing
-     * the 'moving' callbacks
-     */
-    function moveOnce(direction) {
-      if (data.currentlyMoving === false) {
-        data.previousCenterItem = data.currentCenterItem;
-
-        options.movingFromCenter(data.currentCenterItem);
-        if (direction == 'backward') {
-          options.movingToCenter(prevItemFromCenter());
-          data.currentDirection = 'backward';
-        } else if (direction == 'forward') {
-          options.movingToCenter(nextItemFromCenter());
-          data.currentDirection = 'forward';
-        }
-      }
-
-      rotateCarousel(1);
-    }
-    
-    /**
-     * Navigation with arrow keys
-     */
-    $(document).keydown(function(e) {
-      if (options.keyboardNav) {
-        // arrow left or up
-        if ((e.which === 37 && options.orientation == 'horizontal') || (e.which === 38 && options.orientation == 'vertical')) {
-          autoPlay(true);
-          options.autoPlay = 0;
-          moveOnce('backward');
-        // arrow right or down
-        } else if ((e.which === 39 && options.orientation == 'horizontal') || (e.which === 40 && options.orientation == 'vertical')) {
-          autoPlay(true);
-          options.autoPlay = 0;
-          moveOnce('forward');
-        }
-        // should we override the normal functionality for the arrow keys?
-        if (options.keyboardNavOverride && (
-            (options.orientation == 'horizontal' && (e.which === 37 || e.which === 39)) ||
-            (options.orientation == 'vertical' && (e.which === 38 || e.which === 40))
-          )) {
-          e.preventDefault();
-          return false;
-        }
-      }
-    });
-
-    /**
-     * Public API methods
-     */
-    this.reload = function (newOptions) {
-      if (typeof newOptions === "object") {
-        var combineDefaultWith = newOptions;
-      } else {
-        var combineDefaultWith = {};
-      }
-      options = $.extend({}, $.fn.waterwheelCarousel.defaults, newOptions);
-
-      initializeCarouselData();
-      data.itemsContainer.find('img').hide();
-      forceImageDimensionsIfEnabled();
-
-      preload(function () {
-        setOriginalItemDimensions();
-        preCalculatePositionProperties();
-        setupCarousel();
-        setupStarterRotation();
-      });
-    }
-    
-    this.next = function() {
-      autoPlay(true);
-      options.autoPlay = 0;
-
-      moveOnce('forward');
-    }
-    this.prev = function () {
-      autoPlay(true);
-      options.autoPlay = 0;
-
-      moveOnce('backward');
-    }
-
-    this.reload(startingOptions);
-
-    return this;
-  };
-
-  $.fn.waterwheelCarousel.defaults = {
-    // number tweeks to change apperance
-    startingItem:               1,   // item to place in the center of the carousel. Set to 0 for auto
-    separation:                 175, // distance between items in carousel
-    separationMultiplier:       0.6, // multipled by separation distance to increase/decrease distance for each additional item
-    horizonOffset:              0,   // offset each item from the "horizon" by this amount (causes arching)
-    horizonOffsetMultiplier:    1,   // multipled by horizon offset to increase/decrease offset for each additional item
-    sizeMultiplier:             0.7, // determines how drastically the size of each item changes
-    opacityMultiplier:          0.8, // determines how drastically the opacity of each item changes
-    horizon:                    0,   // how "far in" the horizontal/vertical horizon should be set from the container wall. 0 for auto
-    flankingItems:              3,   // the number of items visible on either side of the center                  
-
-    // animation
-    speed:                      300,      // speed in milliseconds it will take to rotate from one to the next
-    animationEasing:            'linear', // the easing effect to use when animating
-    quickerForFurther:          true,     // set to true to make animations faster when clicking an item that is far away from the center
-    edgeFadeEnabled:            false,    // when true, items fade off into nothingness when reaching the edge. false to have them move behind the center image
-    
-    // misc
-    linkHandling:               2,                 // 1 to disable all (used for facebox), 2 to disable all but center (to link images out)
-    autoPlay:                   0,                 // indicate the speed in milliseconds to wait before autorotating. 0 to turn off. Can be negative
-    orientation:                'horizontal',      // indicate if the carousel should be 'horizontal' or 'vertical'
-    activeClassName:            'carousel-center', // the name of the class given to the current item in the center
-    keyboardNav:                false,             // set to true to move the carousel with the arrow keys
-    keyboardNavOverride:        true,              // set to true to override the normal functionality of the arrow keys (prevents scrolling)
-    imageNav:                   true,              // clicking a non-center image will rotate that image to the center
-
-    // preloader
-    preloadImages:              true,  // disable/enable the image preloader. 
-    forcedImageWidth:           0,     // specify width of all images; otherwise the carousel tries to calculate it
-    forcedImageHeight:          0,     // specify height of all images; otherwise the carousel tries to calculate it
-
-    // callback functions
-    movingToCenter:             $.noop, // fired when an item is about to move to the center position
-    movedToCenter:              $.noop, // fired when an item has finished moving to the center
-    clickedCenter:              $.noop, // fired when the center item has been clicked
-    movingFromCenter:           $.noop, // fired when an item is about to leave the center position
-    movedFromCenter:            $.noop  // fired when an item has finished moving from the center
-  };
-
-})(jQuery);
-
-
-
-$(document).ready(function() {
-  var carousel = $('.carousel').waterwheelCarousel();
-});
-
-
-
-        </script>
-
-
-
-        <iframe id="google_osd_static_frame_1019930775861" name="google_osd_static_frame"
-            style="display: none; width: 0px; height: 0px;"></iframe>
-
-</body><iframe id="google_esf" name="google_esf"
-    src="https://googleads.g.doubleclick.net/pagead/html/r20191205/r20190131/zrt_lookup.html#"
-    data-ad-client="ca-pub-2783044520727903" style="display: none;"></iframe>
+</body>
 
 </html>
