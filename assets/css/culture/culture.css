@@ -81,16 +81,24 @@ ul.topnav li a.active::before {
     display:none!important;
 }
 
+
 @keyframes bgMove {
   from {background-size: 100% 100%;}
   to {background-size: 200% 100%;}
 }
 
 
+.slider__body {
+    position: relative;
+}
+
+
+.slider__container {
+    position: relative;
+}
 
 
         .slider__page {
-            padding-top: 60px;
             background: linear-gradient(225deg, #ffc27d, #ff8e93);
             background-image: url('../../images/pages/page1.png');
             background-repeat: no-repeat;
@@ -98,12 +106,11 @@ ul.topnav li a.active::before {
             background-size: cover;
             background-size: 100% 100%;
             animation: bgMove 60s linear infinite;
+            height: 100vh;
          
         }
 
-        section {
-            margin-top: 60px;
-        }
+    
         section>span {
             position: absolute;
             top: 50%;
@@ -141,18 +148,19 @@ ul.topnav li a.active::before {
         }
 
         .rocket {
-            background-image: url('./assets/images/icons/rocket.png');
+            background-image: url('../../images/icons/rocket.png');
             background-repeat: no-repeat;
             background-position: 50% 50%;
             background-size: contain;
             width: 110px;
             height: 110px;
             position: absolute;
-            top: calc(50vh - 145px);
+            top: calc(50vh - 55px);
             left: calc(50% + 110px);
         }
 
         .flexContainer {
+            width: 100%;
             padding-top: 0;
             position: absolute;
             top: 20px;
@@ -162,7 +170,7 @@ ul.topnav li a.active::before {
             height: 60px;
             align-items: center;
             justify-content: center;
-            z-index: 1000;
+            z-index: 1000;}
 
         .flexItem_main {
             flex: 1;
@@ -173,7 +181,8 @@ ul.topnav li a.active::before {
             flex-direction: column;
             align-items: center;
             justify-content: flex-end;
-            height: calc(100vh - 144px);
+            /* height: calc(100vh - 144px); */
+            height: 100vh;
             padding-bottom: 40px;
 
         }
@@ -188,7 +197,7 @@ ul.topnav li a.active::before {
         }
 
         .indicationLine {
-            background-image: url('./assets/images/icons/indicationLine.png');
+            background-image: url('../../images/icons/indicationLine.png');
             background-repeat: no-repeat;
             background-position: 50% 50%;
             background-size: contain;
@@ -201,7 +210,7 @@ ul.topnav li a.active::before {
         }
 
         .arrow_up {
-            background-image: url('./assets/images/icons/arrow-up.png');
+            background-image: url('../../images/icons/arrow-up.png');
             background-repeat: no-repeat;
             background-position: 50% 50%;
             background-size: contain;
@@ -209,11 +218,11 @@ ul.topnav li a.active::before {
             height: 5%;
             min-height: 20px;
 
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
         .arrow_point {
-            background-image: url('./assets/images/icons/arrow-point.png');
+            background-image: url('../../images/icons/arrow-point.png');
             background-repeat: no-repeat;
             background-position: 50% 50%;
             background-size: contain;
@@ -232,7 +241,7 @@ ul.topnav li a.active::before {
             padding: 0px;
             margin: 20px auto 0px auto;
             font-size: 14px;
-            width: 30%;
+            width: 40%;
             min-width: 300px;
             text-align: center;
             height: 10%;
@@ -259,12 +268,12 @@ ul.topnav li a.active::before {
             width: 30%;
             min-width: 300px;
             text-align: center;
-            height: 10%;
+            /* height: 10%; */
         }
 
 
         .rocket_verticle {
-            background-image: url('./assets/images/icons/rocketRun.gif');
+            background-image: url('../../images/icons/rocketRun.gif');
             background-repeat: no-repeat;
             background-position: 50% 50%;
             background-size: contain;
@@ -272,11 +281,11 @@ ul.topnav li a.active::before {
             min-height: 110px;
             width: 15%;
             height: 15%;
-            margin-top: 10px;
+            margin: 10px auto 30px auto;
 
         }
         .rocket_verticle_logo {
-            background-image: url('./assets/images/icons/rocket_logo.png');
+            background-image: url('../../images/icons/rocket_logo.png');
             background-repeat: no-repeat;
             background-position: 50% 50%;
             background-size: contain;
@@ -284,12 +293,12 @@ ul.topnav li a.active::before {
             min-height: 110px;
             width: 15%;
             height: 15%;
-            margin-top: 10px;
+            margin-top: 40px;
 
         }
 
         .light {
-            background-image: url('./assets/images/icons/light.png');
+            background-image: url('../../images/icons/light.png');
             background-repeat: no-repeat;
             background-position: 50% 50%;
             background-size: contain;
@@ -301,7 +310,7 @@ ul.topnav li a.active::before {
         }
 
         .arrow_end {
-            background-image: url('./assets/images/icons/arrow-end.png');
+            background-image: url('../../images/icons/arrow-end.png');
             background-repeat: no-repeat;
             background-position: 50% 50%;
             background-size: contain;
@@ -313,7 +322,7 @@ ul.topnav li a.active::before {
 
         .middle_line {
 
-            background-image: url('./assets/images/icons/middle-line.png');
+            background-image: url('../../images/icons/middle-line.png');
             background-repeat: no-repeat;
             background-position: 50% 50%;
             background-size: contain;
@@ -352,7 +361,7 @@ ul.topnav li a.active::before {
         }
 
         .community_dotline {
-            background-image: url('./assets/images/icons/community_dotline.png');
+            background-image: url('../../images/icons/community_dotline.png');
             background-repeat: no-repeat;
             background-position: 50% 50%;
             background-size: contain;
@@ -364,7 +373,7 @@ ul.topnav li a.active::before {
         }
 
         .verticalYellowLine {
-            background-image: url('./assets/images/icons/verticalYellowLine.png');
+            background-image: url('../../images/icons/verticalYellowLine.png');
             background-repeat: no-repeat;
             background-position: 50% 50%;
             background-size: contain;
@@ -380,7 +389,7 @@ ul.topnav li a.active::before {
         }
 
         .community_left {
-            background-image: url('./assets/images/icons/community.png');
+            background-image: url('../../images/icons/community.png');
             background-repeat: no-repeat;
             background-position: 50% 50%;
             background-size: contain;
@@ -392,7 +401,7 @@ ul.topnav li a.active::before {
         }
 
         .community_right {
-            background-image: url('./assets/images/icons/community-right.png');
+            background-image: url('../../images/icons/community-right.png');
             background-repeat: no-repeat;
             background-position: 50% 50%;
             background-size: contain;
@@ -404,7 +413,7 @@ ul.topnav li a.active::before {
         }
 
         .background_characters {
-            background-image: url('./assets/images/icons/lightGreyBg.png');
+            background-image: url('../../images/icons/lightGreyBg.png');
             background-repeat: no-repeat;
             background-position: 50% 50%;
             background-size: contain;
@@ -421,7 +430,7 @@ ul.topnav li a.active::before {
         
 
         .left_characters {
-            background-image: url('./assets/images/icons/left-twocharaters.png');
+            background-image: url('../../images/icons/left-twocharaters.png');
             background-repeat: no-repeat;
             background-position: 50% 50%;
             background-size: contain;
@@ -441,7 +450,7 @@ ul.topnav li a.active::before {
 
         .heroImage {
 
-            background-image: url('./assets/images/icons/HeroImage.png');
+            background-image: url('../../images/icons/HeroImage.png');
             background-repeat: no-repeat;
             background-position: 50% 50%;
             width: 20%;
@@ -458,7 +467,7 @@ ul.topnav li a.active::before {
         }
 
         .bg_ending {
-            background-image: url('./assets/images/icons/bg_ending.png');
+            background-image: url('../../images/icons/bg_ending.png');
             background-repeat: no-repeat;
             background-position: 50% 50%;
             background-size: cover;
@@ -473,7 +482,7 @@ ul.topnav li a.active::before {
         }
 
         .internProgramicon {
-            background-image: url('./assets/images/icons/internprogram.jpg');
+            background-image: url('../../images/icons/internprogram.jpg');
             background-repeat: no-repeat;
             background-position: 50% 50%;
             background-size: cover;
@@ -482,7 +491,7 @@ ul.topnav li a.active::before {
         }
 
         .services-bg {
-            background-image: url("./assets/images/icons/lightGrey_Bg.png");
+            background-image: url("../../images/icons/lightGrey_Bg.png");
             background-repeat: no-repeat;
             background-position: 50% 50%;
             background-size: cover;
@@ -499,7 +508,7 @@ ul.topnav li a.active::before {
         }
 
         .services-bg:hover {
-            background-image: url(./assets/images/icons/blueBg_onhover.png);
+            background-image: url("../../images/icons/blueBg_onhover.png");
             background-repeat: no-repeat;
             background-position: 50% 50%;
             background-size: contain;
@@ -574,25 +583,25 @@ ul.topnav li a.active::before {
         }
 
         .explore_earth {
-            background-image: url(./assets/images/icons/explore_earth.png);
+            background-image: url(../../images/icons/explore_earth.png);
 
         }
 
 
 
         .intern_earth {
-            background-image: url(./assets/images/icons/intern_earth.png);
+            background-image: url(../../images/icons/intern_earth.png);
 
         }
 
 
         .lifeCoach_earth {
-            background-image: url(./assets/images/icons/lifeCoach_earth.png);
+            background-image: url(../../images/icons/lifeCoach_earth.png);
 
         }
 
         .career_earth {
-            background-image: url(./assets/images/icons/career_earth.png);
+            background-image: url(../../images/icons/career_earth.png);
         }
 
         .sub-text-half {
@@ -634,21 +643,21 @@ ul.topnav li a.active::before {
         }
 
         #icon_01 {
-            background-image: url(./assets/images/icons/icon_01.png);
+            background-image: url(../../images/icons/icon_01.png);
         }
 
         #icon_02 {
-            background-image: url(./assets/images/icons/icon_02.png);
+            background-image: url(../../images/icons/icon_02.png);
 
         }
 
         #icon_03 {
-            background-image: url(./assets/images/icons/icon_03.png);
+            background-image: url(../../images/icons/icon_03.png);
 
         }
 
         #icon_04 {
-            background-image: url(./assets/images/icons/icon_04.png);
+            background-image: url(../../images/icons/icon_04.png);
 
         }
 
