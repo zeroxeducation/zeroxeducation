@@ -160,3 +160,5 @@ var slider = function (sliderElement) {
         window.addEventListener('onload', init(), false);
     }
 };
+
+
