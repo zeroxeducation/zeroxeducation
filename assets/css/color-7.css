@@ -3211,14 +3211,16 @@ footer {
 }
 
 .page-title {
-    background-image: url("../images/banner-1.jpg");
     background-repeat: repeat;
     background-attachment: fixed;
     background-position: top;
-    width: 100%;
+    width: 90%;
     height: 300px;
     color: #fff;
-    text-align: center
+    text-align: center;
+    margin-left: 5%;
+    margin-right: 10%;
+    opacity: 0.7
 }
 
 .page-title .container {
