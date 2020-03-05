@@ -82,10 +82,10 @@ ul.topnav li a.active::before {
 }
 
 
-@keyframes bgMove {
+/* @keyframes bgMove {
   from {background-size: 100% 100%;}
   to {background-size: 200% 100%;}
-}
+} */
 
 
 .slider__body {
@@ -99,13 +99,14 @@ ul.topnav li a.active::before {
 
 
         .slider__page {
-            background: linear-gradient(225deg, #ffc27d, #ff8e93);
+            /* background: linear-gradient(225deg, #ffc27d, #ff8e93);
             background-image: url('../../images/pages/page1.png');
             background-repeat: no-repeat;
             background-position: 50% 50%;
             background-size: cover;
-            background-size: 100% 100%;
-            animation: bgMove 60s linear infinite;
+            background-size: 100% 100%; */
+            opacity: 0.5;
+            /* animation: bgMove 60s linear infinite; */
             height: 100vh;
          
         }
